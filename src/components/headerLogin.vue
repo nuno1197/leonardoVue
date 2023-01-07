@@ -1,77 +1,76 @@
 <template>
-    <v-app>
-        <v-app-bar app color="#2A3F54">
-            <ul two-line class="px-0" 
-                dense
-                dark
-                color="#2A3F54">
-                    <v-avatar min-width="55px" tile class="ava" @click="about = true">
-                        <v-img src="@/assets/logo_original.png"/>
-                    </v-avatar>
-                <li>
-                    <h2>Titulo do Projeto</h2>
-                    <h3>Admin do Sistema</h3>
-                </li>
-            </ul>
-                <v-dialog @keydown.esc="about = false" v-model="about" scrollable width="500">
-                    <v-card>
-                        <v-toolbar color="#2A3F54" dark>
-                            <h2>Saber Mais</h2>
-                        </v-toolbar>
-                        <v-divider
-                        class="mx-4"
-                        horizontal
-                    ></v-divider>
-
-                        <v-card-text class="change-font" style="white-space: pre-line"
-                        >Saber mais </v-card-text
-                        >
-                        <v-card-actions>
-                        <v-spacer></v-spacer>
-                        
-                        <v-tooltip bottom> 
-                            <template v-slot:activator="{ on }">
-                                <v-btn depressed color="white" @click="about=false" v-on="on">
-                                <v-icon large>mdi-exit-to-app</v-icon>
-                                </v-btn>
-                            </template>
-                            <span>Sair</span>
-                            </v-tooltip>
-
-                        </v-card-actions>
-                    </v-card>
-                </v-dialog>
-            <div class="spacer"></div>
-            <v-tooltip bottom> 
+      <v-app-bar app color="#2A3F54" >
+        <v-list-item two-line dense dark color="white" class="px-0">
+            <template v-slot:prepend>
+                <v-avatar  min-width="55px" tile class="ava" v-on:click="about = true">
+                    <v-img src="src/assets/logo_original.png" contain/>
+                </v-avatar>
+            </template>
+            <v-list-item-title><h2 color>Leonardo</h2></v-list-item-title>
+            <v-list-item-subtitle>Sistema de aferição de conhecimento multidisciplinar</v-list-item-subtitle>
+        </v-list-item>
+        <v-dialog @keydown.esc="about = false" v-model="about" scrollable width="500">
+          <v-card>
+            <v-toolbar color="#2A3F54" dark>
+              <h2>Saber Mais</h2>
+            </v-toolbar>
+            <v-divider class="mx-4" horizontal></v-divider>
+            <v-card-text class="change-font" style="white-space: pre-line">
+              Saber mais
+            </v-card-text>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-tooltip placement="bottom">
                 <template v-slot:activator="{ on }">
-                <v-btn text small class="white--text change-font" @click="setLocale('pt')" v-on="on">PT</v-btn>
+                  <v-btn
+                    depressed
+                    background-color="lightgray"
+                    @click="about = false"
+                    v-bind="on"
+                  >
+                    <v-icon large>mdi-exit-to-app</v-icon>
+                  </v-btn>
                 </template>
-                <span>PT</span>
-            </v-tooltip>
-
-            <v-tooltip bottom> 
-                <template v-slot:activator="{ on }">
-                <v-btn text small class="white--text change-font" @click="setLocale('es')" v-on="on">ES</v-btn>
-                </template>
-                <span>ES</span>
-            </v-tooltip>
-            
-            <v-tooltip bottom> 
-                <template v-slot:activator="{ on }">
-                <v-btn text small class="white--text change-font" @click="setLocale('en')" v-on="on">UK</v-btn>
-                </template>
-                <span>EN</span>
-            </v-tooltip>
-        </v-app-bar>
-    </v-app>
+                <span>Sair</span>
+              </v-tooltip>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+        <div class="spacer"></div>
+        <v-tooltip placement="bottom">
+            <template v-slot:activator="{ on }">
+                <v-btn text small class="white--text change-font" @click="setLocale('pt')" v-bind="on">
+                PT
+            </v-btn>
+            </template>
+            <span>PT</span>
+        </v-tooltip>
+        <v-tooltip placement="bottom">
+            <template v-slot:activator="{ on }">
+            <v-btn text small class="white--text change-font" @click="setLocale('es')" v-bind="on">
+                ES
+            </v-btn>
+            </template>
+            <span>ES</span>
+        </v-tooltip>
+        <v-tooltip placement="bottom">
+            <template v-slot:activator="{ on }">
+            <v-btn text small class="white--text change-font" @click="setLocale('en')" v-bind="on">
+                UK
+            </v-btn>
+            </template>
+            <span>EN</span>
+        </v-tooltip>
+    </v-app-bar>
 </template>
+
 
 <script>
 export default {
     data() {
         return{
             help:'',
-            about: ''
+            about: false
         }
     },
     props:{

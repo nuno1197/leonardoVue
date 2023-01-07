@@ -1,8 +1,9 @@
 import { createApp } from 'vue'
 import App from './views/Login.vue'
+//import VueMaterial from 'vue-material'
+import '@mdi/font/css/materialdesignicons.css'
 
 import router from './router'
-import './assets/main.css'
 
 //vuetify
 import 'vuetify/styles'
