@@ -1,5 +1,5 @@
 <template>
-    <v-app-bar app color="#2A3F54" height="100" clipped-right>
+    <v-app-bar app color="#2A3F54" height="100" clipped-left>
         <v-app-bar-nav-icon 
             @click="drawerState = !drawerState"
             color="#FFF"
