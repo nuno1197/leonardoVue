@@ -3,7 +3,7 @@ import App from './App.vue'
 //import VueMaterial from 'vue-material'
 import '@mdi/font/css/materialdesignicons.css'
 import Vue3EasyDataTable from 'vue3-easy-data-table';
-//import 'vue3-easy-data-table/dist/style.css';
+import 'vue3-easy-data-table/dist/style.css';
 import router from './router'
 import store from './store'
 //vuetify
