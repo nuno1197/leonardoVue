@@ -33,13 +33,17 @@
                 </template>
                 <span>Sair</span>
               </v-tooltip>
-            </v-card-actions>
+            </v-card-actions>image.png
           </v-card>
         </v-dialog>
         <div class="spacer"></div>
-        <v-tooltip placement="bottom">
-            <template v-slot:activator="{ on }">
-                <v-btn text small class="white--text change-font" @click="setLocale('pt')" v-bind="on">
+        <div style="margin-left:800px">
+
+        <v-select :items="items" label="Standard"></v-select>
+
+        <v-tooltip >
+            <template v-slot:activator="{ on }"  >
+                <v-btn text small class="" @click="setLocale('pt')" v-bind="on" color="white">
                 PT
             </v-btn>
             </template>
@@ -47,7 +51,7 @@
         </v-tooltip>
         <v-tooltip placement="bottom">
             <template v-slot:activator="{ on }">
-            <v-btn text small class="white--text change-font" @click="setLocale('es')" v-bind="on">
+            <v-btn text small class="white--text change-font" @click="setLocale('es')" v-bind="on" color="white">
                 ES
             </v-btn>
             </template>
@@ -55,12 +59,13 @@
         </v-tooltip>
         <v-tooltip placement="bottom">
             <template v-slot:activator="{ on }">
-            <v-btn text small class="white--text change-font" @click="setLocale('en')" v-bind="on">
+            <v-btn text small class="white--text change-font" @click="setLocale('en')" v-bind="on" color="white">
                 UK
             </v-btn>
             </template>
             <span>EN</span>
         </v-tooltip>
+    </div>
     </v-app-bar>
 </template>
 
