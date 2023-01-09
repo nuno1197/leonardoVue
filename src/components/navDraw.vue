@@ -8,250 +8,147 @@
       class="navBar"
     >
     <v-list dense dar>
-      <v-list-item>
-          <template v-slot:prepend>
-                <v-avatar v-on:click="about = true">
-                    <v-icon>mdi-home</v-icon>
-                </v-avatar>
-            </template>
-        <v-list-item-title>Inicio</v-list-item-title>
-      </v-list-item>
+      <v-list-item prepend-icon="mdi-home" style="color: #fff;" title="Início"></v-list-item>
+
       <v-list-group 
         active-class="yellow--text"
-        :value="false"
+        :value="infoBase"
         no-action
       >
-        <template v-slot:activator="{on}" >
-          <v-list-item-title active-class="yellow--text" >
-            Informação base  
-          </v-list-item-title>
-        </template>
-        <v-list-item active-class="yellow--text" >
-          <v-list-item-title active-class="yellow--text">Responsáveis</v-list-item-title>
-        </v-list-item>
-        <v-list-item  active-class="yellow--text">
-          <v-list-item-title active-class="yellow--text">Professores</v-list-item-title>
-        </v-list-item>
-        <v-list-item  active-class="yellow--text">
-          <v-list-item-title active-class="yellow--text">Alunos</v-list-item-title>
-        </v-list-item>
-        <v-list-item   active-class="yellow--text">
-          <v-list-item-title active-class="yellow--text">Domínios</v-list-item-title>
-        </v-list-item>
-        <v-list-item >
-          <v-list-item-title active-class="yellow--text">Questões</v-list-item-title>
-        </v-list-item>
-        <v-list-item >
-          <v-list-item-title active-class="yellow--text">Testes</v-list-item-title>
-        </v-list-item>
+
+      <template v-slot:activator="{ props }">
+        <v-list-item v-bind="props" prepend-icon="mdi-database" style="color: #fff;" >Informação Base</v-list-item>
+      </template>
+      <v-list-item v-bind="props" style="color: #fff;" title="Responsáveis"></v-list-item>
+      <v-list-item v-bind="props" style="color: #fff;" title="Professores"></v-list-item>
+      <v-list-item v-bind="props" style="color: #fff;" title="Alunos"></v-list-item>
+      <v-list-item v-bind="props" style="color: #fff;" title="Domínios"></v-list-item>
+      <v-list-item v-bind="props" style="color: #fff;" title="Questões"></v-list-item>
+      <v-list-item v-bind="props" style="color: #fff;" title="Testes"></v-list-item>
+
       </v-list-group>
       <v-list-group
           active-class="yellow--text"
-          prepend-icon="mdi-wrench"
-          :value="false"
+          :value="producao"
           no-action
         >
-          <template v-slot:activator>
-            <v-list-item-title active-class="yellow--text">Produção</v-list-item-title>
-          </template>
-          <v-list-item active-class="yellow--text">
-            <v-list-item-title >Domínios</v-list-item-title>
-          </v-list-item>
-          <v-list-item active-class="yellow--text">
-            <v-list-item-title >Questões</v-list-item-title>
-          </v-list-item>
-          <v-list-item active-class="yellow--text">
-            <v-list-item-title >Testes</v-list-item-title>
-          </v-list-item>
+
+
+      <template v-slot:activator="{ props }">
+        <v-list-item v-bind="props" prepend-icon="mdi-wrench" style="color: #fff;" title="Produção"></v-list-item>
+      </template>
+      <v-list-item v-bind="props" style="color: #fff;" title="Domínios"></v-list-item>
+      <v-list-item v-bind="props" style="color: #fff;" title="Questões"></v-list-item>
+      <v-list-item v-bind="props" style="color: #fff;" title="Testes"></v-list-item>
+
       </v-list-group>
       <v-list-group
         active-class="yellow--text"
-        :prepend-icon="['mdi-check-bold']"
-        :value="false"
+        :value="verificacao"
         no-action
       >
-        <template v-slot:activator>
-          <v-list-item-title active-class="yellow--text">Verificação</v-list-item-title>
+        <template v-slot:activator="{ props }">
+          <v-list-item v-bind="props" prepend-icon="mdi-check-bold" style="color: #fff;" title="Verificação"></v-list-item>
         </template>
-        <!-- ROTA DA IMPORTAÇÃO  -->
-        <v-list-item active-class="yellow--text">
-          <v-list-item-title>Importação de questões</v-list-item-title>
-        </v-list-item>
-        <v-list-item active-class="yellow--text">
-          <v-list-item-title>Verificação de questões</v-list-item-title>
-        </v-list-item>
-        <v-list-item active-class="yellow--text">
-          <v-list-item-title>Verificação de erros</v-list-item-title>
-        </v-list-item>
-        <v-list-item active-class="yellow--text">
-          <v-list-item-title>Dashboard</v-list-item-title>
-        </v-list-item>
+        <v-list-item v-bind="props" style="color: #fff;" title="Importação de questões"></v-list-item>
+        <v-list-item v-bind="props" style="color: #fff;" title="Verificação de questões"></v-list-item>
+        <v-list-item v-bind="props" style="color: #fff;" title="Verificação de erros"></v-list-item>
+        <v-list-item v-bind="props" style="color: #fff;" title="Dashboard"></v-list-item>
       </v-list-group>
       <v-list-group
         active-class="yellow--text"
-        prepend-icon="mdi-school"
-        :value="false"
+        :value="avaliacao"
         no-action
       >
-        <template v-slot:activator>
-          <v-list-item-title active-class="yellow--text">Avaliação</v-list-item-title>
+        <template v-slot:activator="{ props }">
+          <v-list-item v-bind="props" prepend-icon="mdi-school" style="color: #fff;" title="Avaliação"></v-list-item>
         </template>
-        <v-list-item active-class="yellow--text" >
-          <v-list-item-title >Realização de Testes</v-list-item-title>
-        </v-list-item>
-        <v-list-item >
-          <v-list-item-title >Sessões de Quiz</v-list-item-title>
-        </v-list-item>
-          <v-list-item >
-          <v-list-item-title >Resultados</v-list-item-title>
-        </v-list-item>
+        <v-list-item v-bind="props" style="color: #fff;" title="Realização de Testes"></v-list-item>
+        <v-list-item v-bind="props" style="color: #fff;" title="Sessões de Quiz"></v-list-item>
+        <v-list-item v-bind="props" style="color: #fff;" title="Resultados"></v-list-item>
       </v-list-group>
 
       <v-list-group 
         active-class="yellow--text"
-        prepend-icon="mdi-wechat"
-        :value="false"
+        :value="opinioes"
         no-action
       >
-        <template v-slot:activator>
-          <v-list-item-title active-class="yellow--text">Opiniões</v-list-item-title>
+        <template v-slot:activator="{ props }">
+          <v-list-item v-bind="props" prepend-icon="mdi-wechat" style="color: #fff;" title="Opiniões"></v-list-item>
         </template>
-        <v-list-item >
-          <v-list-item-title >Inquérito de Sistema</v-list-item-title>
-        </v-list-item>
-        <v-list-item >
-          <v-list-item-title >Análise de Inquéritos</v-list-item-title>
-        </v-list-item>
-        <v-list-item >
-          <v-list-item-title >Estudo de Propriedades</v-list-item-title>
-        </v-list-item>
-        <v-list-item >
-          <v-list-item-title >Sentimentos Expressos</v-list-item-title>
-        </v-list-item>
+        <v-list-item v-bind="props" style="color: #fff;" title="Inquérito de Sistema"></v-list-item>
+        <v-list-item v-bind="props" style="color: #fff;" title="Análise de Inquéritos"></v-list-item>
+        <v-list-item v-bind="props" style="color: #fff;" title="Estudo de Propriedades"></v-list-item>
+        <v-list-item v-bind="props" style="color: #fff;" title="Sentimentos Expressos"></v-list-item>
       </v-list-group>
 
       <v-list-group
         active-class="yellow--text"
-        prepend-icon="mdi-trophy-variant"
-        :value="false"
+        :value="gamificacao"
         no-action
       >
-        <template v-slot:activator>
-          <v-list-item-title active-class="yellow--text">Gamificação</v-list-item-title>
+        <template v-slot:activator="{ props }">
+          <v-list-item v-bind="props" prepend-icon="mdi-trophy-variant" style="color: #fff;" title="Gamificação"></v-list-item>
         </template>
-        <v-list-item  active-class="yellow--text">
-          <v-list-item-title >Domínios</v-list-item-title>
-        </v-list-item>
-        <v-list-item >
-          <v-list-item-title >Alunos</v-list-item-title>
-        </v-list-item>
+        <v-list-item v-bind="props" style="color: #fff;" title="Domínios"></v-list-item>
+        <v-list-item v-bind="props" style="color: #fff;" title="Alunos"></v-list-item>
       </v-list-group>
 
       <v-list-group
         active-class="yellow--text"
-        prepend-icon="mdi-chart-bar"
-        :value="false"
+        :value="dashboards"
         no-action
       >
-        <template v-slot:activator>
-          <v-list-item-title active-class="yellow--text">Dashboards</v-list-item-title>
+
+        <template v-slot:activator="{ props }">
+          <v-list-item v-bind="props" prepend-icon="mdi-chart-bar" style="color: #fff;" title="Dashboards"></v-list-item>
         </template>
-        <v-list-item >
-          <v-list-item-title >Alunos</v-list-item-title>
-        </v-list-item>
-        <v-list-item   active-class="yellow--text">
-          <v-list-item-title >Respostas</v-list-item-title>
-        </v-list-item>
-        <v-list-item  >
-          <v-list-item-title >Acessos</v-list-item-title>
-        </v-list-item>
+        <v-list-item v-bind="props" style="color: #fff;" title="Alunos"></v-list-item>
+        <v-list-item v-bind="props" style="color: #fff;" title="Respostas"></v-list-item>
+        <v-list-item v-bind="props" style="color: #fff;" title="Acessos"></v-list-item>
       </v-list-group>
 
       <v-list-group 
         active-class="yellow--text"
-        prepend-icon="mdi-account-multiple"
-        :value="false"
+        :value="utilizadores"
         no-action
       >
-        <template v-slot:activator>
-          <v-list-item-title active-class="yellow--text">Utilizadores</v-list-item-title>
+        <template v-slot:activator="{ props }">
+          <v-list-item v-bind="props" prepend-icon="mdi-account-multiple" style="color: #fff;" title="Utilizadores"></v-list-item>
         </template>
-        <v-list-item active-class="yellow--text">
-          <v-list-item-title >Gestão</v-list-item-title>
-        </v-list-item>
-        <v-list-item  active-class="yellow--text">
-          <v-list-item-title >Pedidos de Acesso</v-list-item-title>
-        </v-list-item>
-        <v-list-item  active-class="yellow--text">
-          <v-list-item-title >Importação</v-list-item-title>
-        </v-list-item>
-        <v-list-item  active-class="yellow--text">
-          <v-list-item-title >Atividade Corrente</v-list-item-title>
-        </v-list-item>
-        <v-list-item  active-class="yellow--text">
-          <v-list-item-title >Historial de Acesso</v-list-item-title>
-        </v-list-item>
-        <v-list-item  active-class="yellow--text">
-          <v-list-item-title >Logs</v-list-item-title>
-        </v-list-item>
+        <v-list-item v-bind="props" style="color: #fff;" title="Pedidos de Acesso"></v-list-item>
+        <v-list-item v-bind="props" style="color: #fff;" title="Importação"></v-list-item>
+        <v-list-item v-bind="props" style="color: #fff;" title="Atividade Corrente"></v-list-item>
+        <v-list-item v-bind="props" style="color: #fff;" title="Historial de Acesso"></v-list-item>
+        <v-list-item v-bind="props" style="color: #fff;" title="Logs"></v-list-item>
       </v-list-group>
 
       <v-list-group
-    active-class="yellow--text"
-    :prepend-icon="prependIcon"
-    :value="false"
-    no-action
-  >
-    <template v-slot:activator>
-      <v-list-item-title active-class="yellow--text">Eventos</v-list-item-title>
-    </template>
-    <v-list-item>
-      <v-list-item-title>Gestão</v-list-item-title>
-    </v-list-item>
-    <v-list-item>
-      <v-list-item-title>Agenda</v-list-item-title>
-    </v-list-item>
-  </v-list-group>
+        active-class="yellow--text"
+        :value="eventos"
+        no-action
+      >
+        <template v-slot:activator="{ props }">
+          <v-list-item v-bind="props" prepend-icon="mdi-clock" style="color: #fff;" title="Eventos"></v-list-item>
+        </template>
+        <v-list-item v-bind="props" style="color: #fff;" title="Gestão"></v-list-item>
+        <v-list-item v-bind="props" style="color: #fff;" title="Agenda"></v-list-item>
+      </v-list-group>
 
       <v-list-group 
         active-class="yellow--text"
-        prepend-icon="mdi-cog"
-        :value="false"
+        :value="definicoes"
         no-action
       >
-        <template v-slot:activator>
-          <v-list-item-title active-class="yellow--text">Definições</v-list-item-title>
+        <template v-slot:activator="{ props }">
+          <v-list-item v-bind="props" prepend-icon="mdi-cog" style="color: #fff;" title="Definições"></v-list-item>
         </template>
-        <v-list-item  active-class="yellow--text">
-          <v-list-item-title >Configuração geral</v-list-item-title>
-        </v-list-item>
+        <v-list-item v-bind="props" style="color: #fff;" title="Configuração geral"></v-list-item>
       </v-list-group>
-      <v-list-item  >
-        <template v-slot:prepend>
-            <v-avatar v-on:click="about = true">
-                <v-icon>mdi-help</v-icon>
-            </v-avatar>
-        </template>
-        <v-list-item-title>Ajuda</v-list-item-title>
-      </v-list-item>
 
-      <v-list-item   active-class="yellow--text">
-        <template v-slot:prepend>
-            <v-avatar v-on:click="about = true">
-                <v-icon>mdi-text-box-multiple</v-icon>
-            </v-avatar>
-        </template>
-        <v-list-item-title>Documentação</v-list-item-title>
-      </v-list-item>
-
-      <v-list-item link @click="about = true" active-class="yellow--text">
-        <template v-slot:prepend>
-            <v-avatar v-on:click="about = true">
-                <v-icon>mdi-information-outline</v-icon>
-            </v-avatar>
-        </template>
-        <v-list-item-title>Acerca de</v-list-item-title>
-      </v-list-item>
+      <v-list-item v-on:click="about = true" prepend-icon="mdi-help" style="color: #fff;" title="Ajuda"></v-list-item>
+      <v-list-item v-on:click="about = true" prepend-icon="mdi-text-box-multiple" style="color: #fff;" title="Documentação"></v-list-item>
+      <v-list-item v-on:click="about = true" prepend-icon="mdi-information-outline" style="color: #fff;" title="Acerca de"></v-list-item>
 
       <v-dialog @keydown.esc="about = false" v-model="about" scrollable width="500">
             <v-card>
@@ -271,7 +168,7 @@
                 
                 <v-tooltip bottom> 
                   <template v-slot:activator="{ on }">
-                      <v-btn depressed color="white" @click="about=false" v-on="{on}">
+                      <v-btn depressed color="lightgray" @click="about=false" v-on="{on}">
                         <v-icon large>mdi-exit-to-app</v-icon>
                       </v-btn>
                     </template>
@@ -281,14 +178,9 @@
               </v-card-actions>
             </v-card>
       </v-dialog>
-      <v-list-item link @click="credits = true">
-        <template v-slot:prepend>
-            <v-avatar v-on:click="about = true">
-                <v-icon>mdi-account-group</v-icon>
-            </v-avatar>
-        </template>
-        <v-list-item-title>Créditos</v-list-item-title>
-      </v-list-item>
+
+      <v-list-item v-on:click="credits = true" prepend-icon="mdi-account-group" style="color: #fff;" title="Créditos"></v-list-item>
+
       <v-dialog @keydown.esc="credits = false"  v-model="credits" scrollable width="500">
         <v-card>
           <v-toolbar color="#2A3F54" dark>
@@ -308,7 +200,7 @@
             
             <v-tooltip bottom> 
               <template v-slot:activator="{ on }">
-                  <v-btn depressed color="white" @click="credits=false" v-on="{on}">
+                  <v-btn depressed color="lightgray" @click="credits=false" v-on="{on}">
                     <v-icon large>mdi-exit-to-app</v-icon>
                   </v-btn>
                 </template>
@@ -318,85 +210,66 @@
           </v-card-actions>
         </v-card>
       </v-dialog>
-      <v-list-item link @click="terms = true">
-        <template v-slot:prepend>
-            <v-avatar v-on:click="about = true">
-                <v-icon>mdi-book-multiple</v-icon>
-            </v-avatar>
-        </template>
-        <v-list-item-title>Termos de Utilização</v-list-item-title>
-      </v-list-item>
+
+      <v-list-item v-on:click="terms = true" prepend-icon="mdi-book-multiple" style="color: #fff;" title="Termos de utilização"></v-list-item>
+
       <v-dialog @keydown.esc="terms = false" v-model="terms" scrollable  width="500">
         <v-card>
           <v-toolbar color="#2A3F54" dark>
             <h2>Termos de Utilização</h2>
           </v-toolbar>
-
           <v-divider
-          class="mx-4"
-          horizontal
-        ></v-divider>
-
+            class="mx-4"
+            horizontal
+          ></v-divider>
           <v-card-text class="change-font mt-6" style="white-space: pre-line"
             >Termos de Utilização</v-card-text
           >
           <v-card-actions>
             <v-spacer></v-spacer>
-            
             <v-tooltip bottom> 
               <template v-slot:activator="{ on }">
-                  <v-btn depressed color="white" @click="terms=false" v-on="{on}">
-                    <v-icon large>mdi-exit-to-app</v-icon>
-                  </v-btn>
-                </template>
-                <span>Voltar</span>
-              </v-tooltip>
-            </v-card-actions>
-              </v-card>
-          </v-dialog>
-
-        <v-list-item link @click="priv = true">
-          <template v-slot:prepend>
-                <v-avatar v-on:click="about = true">
-                    <v-icon>mdi-lock</v-icon>
-                </v-avatar>
-            </template>
-              <v-list-item-title>Privacidade</v-list-item-title>
-            </v-list-item>
-            <v-dialog @keydown.esc="priv = false" v-model="priv" scrollable width="500"> 
-              <v-card>
-                <v-toolbar color="#2A3F54" dark>
-                  <h2>Privacidade</h2>
-                </v-toolbar>
-                <v-divider
-                class="mx-4"
-                horizontal
-              ></v-divider>
-
-                <v-card-text class="change-font mt-6" style="white-space: pre-line"
-                  >Privacidade</v-card-text
-                >
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  
-                  <v-tooltip bottom> 
-                    <template v-slot:activator="{ on }">
-                        <v-btn depressed color="white" @click="priv=false" v-on="{on}">
-                          <v-icon large>mdi-exit-to-app</v-icon>
-                        </v-btn>
-                      </template>
-                      <span>Voltar</span>
-                    </v-tooltip>
+                <v-btn depressed color="lightgray" @click="terms=false" v-on="{on}">
+                  <v-icon large>mdi-exit-to-app</v-icon>
+                </v-btn>
+              </template>
+              <span>Voltar</span>
+            </v-tooltip>
           </v-card-actions>
         </v-card>
-    </v-dialog>
+      </v-dialog>
+
+      <v-list-item v-on:click="priv = true" prepend-icon="mdi-lock" style="color: #fff;">Privacidade</v-list-item>
+
+      <v-dialog @keydown.esc="priv = false" v-model="priv" scrollable width="500"> 
+        <v-card>
+          <v-toolbar color="#2A3F54" dark>
+            <h2>Privacidade</h2>
+          </v-toolbar>
+          <v-divider
+            class="mx-4"
+            horizontal
+          ></v-divider>
+          <v-card-text class="change-font mt-6" style="white-space: pre-line">Privacidade</v-card-text>
+            <v-card-actions>
+              <v-spacer></v-spacer>    
+                <v-tooltip bottom> 
+                  <template v-slot:activator="{ on }">
+                    <v-btn depressed color="lightgray" @click="priv=false" v-on="{on}">
+                      <v-icon large>mdi-exit-to-app</v-icon>
+                    </v-btn>
+                  </template>
+                  <span>Voltar</span>
+                </v-tooltip>
+            </v-card-actions>
+        </v-card>
+      </v-dialog>
     </v-list>
     </v-navigation-drawer>
   </v-card>
 </template>
 
 <script>
-
 export default {
   data() {
     return {
@@ -407,9 +280,6 @@ export default {
     };
   },
   computed: {
-    prependIcon() {
-      return ['mdi-clock']
-    },
     drawerState: {
         get () { return this.$store.getters.drawerState },
         set (v) { return this.$store.commit('toggleDrawerState', v) }
