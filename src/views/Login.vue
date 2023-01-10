@@ -317,6 +317,7 @@
 </v-app>
 </template>
 <script>
+
 import axios from 'axios'
 import loginHeader from '../components/headerLogin.vue'
 import footer2 from '../components/footer2.vue'

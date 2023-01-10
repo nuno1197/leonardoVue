@@ -38,12 +38,20 @@
         </v-dialog>
         <div class="spacer"></div>
         <div style="margin-left:800px">
+        <a>
+          <select id="selectBox" onchange="changeSkin();" style=" border: none; background-color: #2A3F54; color: white;" >
+            <option value="">Skin</option>
+            <option>-----------</option>
+            <option value="0">Original</option>       
+            <option value="1">Dark Mode</option>
+            <option value="2">Sun Mode</option>
+          </select>
+        </a>
 
-        <v-select :items="items" label="Standard"></v-select>
 
         <v-tooltip >
             <template v-slot:activator="{ on }"  >
-                <v-btn text small class="" @click="setLocale('pt')" v-bind="on" color="white">
+                <v-btn text small class="" @click="setLocale('pt')" v-bind="on" color="white" >
                 PT
             </v-btn>
             </template>
@@ -71,6 +79,8 @@
 
 
 <script>
+//import changeSkin from '../js/functions.js'
+
 export default {
     data() {
         return{
@@ -108,6 +118,8 @@ export default {
         }
     }
 }
+
+
 </script>
 
 <style scoped>
