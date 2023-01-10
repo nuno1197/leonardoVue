@@ -2,7 +2,7 @@
   <div class="text-center">
     <v-dialog @keydown.esc="dialog = false"  v-model="dialog" scrollable width="500">
       <template v-slot:activator="{ on }">
-        <v-btn depressed text class="grey--text change-font text-none" v-bind="on">
+        <v-btn variant="plain" @click="dialog=true" depressed text class="grey--text change-font text-none" v-bind="on">
           <span>Créditos</span>
         </v-btn>
       </template>

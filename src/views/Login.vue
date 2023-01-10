@@ -3,8 +3,8 @@
 <v-app>
   <div>
     <loginHeader :ajuda='ajuda'></loginHeader>
-    <v-row class="pt-10" justify="space-around">
-      <v-col cols="12" sm="4">
+    <v-row class="pt-12" justify="space-evenly" >
+      <v-col cols="12" sm="4" offset-sm="0">
         <v-img class="center" src="src/assets/leonardo_logo.png" max-height="500px" max-width="500px" @click="popup = true"/>
         <div class="text">
           <v-badge

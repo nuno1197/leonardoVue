@@ -2,7 +2,7 @@
   <div class="text-center">
     <v-dialog @keydown.esc="dialog = false" v-model="dialog" scrollable width="500">
       <template #activator="{ on }">
-        <v-btn depressed text class="grey--text change-font text-none" v-bind="on">
+        <v-btn variant="plain" @click="dialog=true" depressed text class="grey--text change-font text-none" v-bind="on">
           <span class="change-font">Termos</span>
         </v-btn>
       </template>
@@ -20,7 +20,7 @@
           <v-spacer></v-spacer>
 
           <v-tooltip bottom>
-            <template #activator="{ on }">
+            <template v-slot:activator="{ on }">
               <v-btn depressed color="white" @click="dialog=false" v-bind="on">
                 <v-icon large>mdi-exit-to-app</v-icon>
               </v-btn>
