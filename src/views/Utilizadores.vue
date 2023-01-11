@@ -2,16 +2,55 @@
     <div id="users">
         <appHeader :ajuda='ajuda'></appHeader>
         <navDraw></navDraw>
-        <div class=".col-6 .col-md-4 center" style="margin-top: 150px;">
-            <EasyDataTable table-class-name="customize-table" header-text-direction="center" body-text-direction="center"
-                :headers="headers"
-                :items="items"
-            >
-                <template v-slot:item.opcoes="{ item }">
-                    <v-icon>notranslate mr-2 v-icon--link mdi mdi-eye theme--light</v-icon> 
+        <v-toolbar style="padding-top:100px;background-color:white">
+            <v-toolbar-title>Utilizadores</v-toolbar-title>
+            <v-divider
+                class="mx-4"
+                inset
+                vertical
+            ></v-divider>
+            <v-spacer></v-spacer>
+            <v-text-field 
+                v-model="searchValue" 
+                clearable 
+                label="Pesquisa"
+                variant="underlined"
+                append-inner-icon="mdi-magnify"
+                hide-details
+            ></v-text-field>
+            <v-tooltip bottom>
+                <template v-slot:activator="{ on, attrs }">    
+                <v-btn v-bind="attrs" v-on="on" class="white--text mr-4" color="#2A3F54" >
+                    <v-icon>mdi-account-plus</v-icon>
+                </v-btn>                    
                 </template>
-            </EasyDataTable>
-        </div>
+            <span>Criar utilizador</span>
+            </v-tooltip>
+        </v-toolbar>
+        <v-row dense align-self="center" justify="center">
+            <v-col cols="12" sm="12">
+                <EasyDataTable table-class-name="customize-table" header-text-direction="center" body-text-direction="center"
+                    :headers="headers"
+                    :items="items"
+                    alternating
+                    :search-value="searchValue"
+                    :sort-by="sortBy"
+                    :sort-type="sortType"
+
+                >
+                <template #item-opcoes="item">
+                    <div class="operation-wrapper">
+                        <v-icon>mdi-eye</v-icon>
+                        <v-icon>mdi-pencil</v-icon>
+                        <v-icon>mdi-delete</v-icon>
+                    </div>
+                    </template>
+                    <template v-slot:item.opcoes="{ item }">
+                        <v-icon>notranslate mr-2 v-icon--link mdi mdi-eye theme--light</v-icon> 
+                    </template>
+                </EasyDataTable>
+            </v-col>
+        </v-row>
     </div>
 </template>
 
@@ -65,25 +104,37 @@ export default {
 <script lang="ts" setup>
 
 
-import type { Header, Item } from "vue3-easy-data-table";
+import { ref } from "vue";
+import type { Header, Item, SortType } from "vue3-easy-data-table";
+const searchValue = ref("");
+
+const sortBy = ["username","nome","email","numero","tipo"];
+const sortType: SortType[] =  ["desc", "asc"];
 
 const headers: Header[] = [
-  { text: "Username", value: "username" },
-  { text: "Nome", value: "nome"},
-  { text: "Email", value: "email"},
-  { text: "Número de aluno", value: "numero"},
-  { text: "Tipo", value: "tipo"},
+  { text: "Username", value: "username", sortable: true},
+  { text: "Nome", value: "nome", sortable: true},
+  { text: "Email", value: "email", sortable: true},
+  { text: "Número de aluno", value: "numero", sortable: true},
+  { text: "Tipo", value: "tipo", sortable: true},
   { text: "Opções", value: "opcoes"}
 ];
 
 const items: Item[] = [
-  { username: "leo2", nome: "Leonardo", email:"leo@leo.com", numero:"a99999", tipo:"Admin", opcoes:""}
+  { username: "leo2", nome: "Leonardo", email:"leo@leo.com", numero:"a99999", tipo:"Admin", opcoes:""},
+  { username: "teste", nome: "Leonarda", email:"led@leo.com", numero:"a11111", tipo:"Aluno", opcoes:""},
+  { username: "d", nome: "ups", email:"ups@leo.com", numero:"a22222", tipo:"User", opcoes:""},
+  { username: "aasd", nome: "asd", email:"asd@leo.com", numero:"a33333", tipo:"Admin", opcoes:""},
+  { username: "r", nome: "gsd", email:"r@leo.com", numero:"a4444", tipo:"Admin", opcoes:""}
 ];
 
 
 </script>
 <style scoped>
-
+    .operation-wrapper .operation-icon {
+    width: 20px;
+    cursor: pointer;
+    }
    .customize-table{
     --easy-table-border: 0px solid #445269;
     --easy-table-header-background-color: #4b779e;
