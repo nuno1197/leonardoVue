@@ -2,11 +2,15 @@
     <div id="users">
         <appHeader :ajuda='ajuda'></appHeader>
         <navDraw></navDraw>
-        <div class=".col-6 .col-md-4">
-            <EasyDataTable
+        <div class=".col-6 .col-md-4 center" style="margin-top: 150px;">
+            <EasyDataTable table-class-name="customize-table" header-text-direction="center" body-text-direction="center"
                 :headers="headers"
                 :items="items"
-            />
+            >
+                <template v-slot:item.opcoes="{ item }">
+                    <v-icon>notranslate mr-2 v-icon--link mdi mdi-eye theme--light</v-icon> 
+                </template>
+            </EasyDataTable>
         </div>
     </div>
 </template>
@@ -64,26 +68,38 @@ export default {
 import type { Header, Item } from "vue3-easy-data-table";
 
 const headers: Header[] = [
-  { text: "PLAYER", value: "player" },
-  { text: "TEAM", value: "team"},
-  { text: "NUMBER", value: "number"},
-  { text: "POSITION", value: "position"},
-  { text: "HEIGHT", value: "indicator.height"},
-  { text: "WEIGHT (lbs)", value: "indicator.weight", sortable: true},
-  { text: "LAST ATTENDED", value: "lastAttended", width: 200},
-  { text: "COUNTRY", value: "country"},
+  { text: "Username", value: "username" },
+  { text: "Nome", value: "nome"},
+  { text: "Email", value: "email"},
+  { text: "Número de aluno", value: "numero"},
+  { text: "Tipo", value: "tipo"},
+  { text: "Opções", value: "opcoes"}
 ];
 
 const items: Item[] = [
-  { player: "Stephen Curry", team: "GSW", number: 30, position: 'G', indicator: {"height": '6-2', "weight": 185}, lastAttended: "Davidson", country: "USA"},
-  { player: "Lebron James", team: "LAL", number: 6, position: 'F', indicator: {"height": '6-9', "weight": 250}, lastAttended: "St. Vincent-St. Mary HS (OH)", country: "USA"},
-  { player: "Kevin Durant", team: "BKN", number: 7, position: 'F', indicator: {"height": '6-10', "weight": 240}, lastAttended: "Texas-Austin", country: "USA"},
-  { player: "Giannis Antetokounmpo", team: "MIL", number: 34, position: 'F', indicator: {"height": '6-11', "weight": 242}, lastAttended: "Filathlitikos", country: "Greece"},
+  { username: "leo2", nome: "Leonardo", email:"leo@leo.com", numero:"a99999", tipo:"Admin", opcoes:""}
 ];
 
 
 </script>
 <style scoped>
+
+   .customize-table{
+    --easy-table-border: 0px solid #445269;
+    --easy-table-header-background-color: #4b779e;
+    --easy-table-header-font-color: #fff;
+    --easy-table-header-height: 50px;
+    --easy-table-header-font-size: 15px;
+
+    --easy-table-header-item-padding: 0px 16px;
+    --easy-table-body-item-padding: 0px 45px;
+
+    --easy-table-body-row-font-size: 14px Arial;
+    --easy-table-body-row-font-color: #73879c;
+
+
+    --easy-table-body-row-height: 50px;
+    }
   .v-data-table :deep() th{
         background-color:#4b779e;
     }
