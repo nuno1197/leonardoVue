@@ -1,5 +1,5 @@
 <template>
-      <v-app-bar app color="#2A3F54" >
+      <v-app-bar app color="#2A3F54" id="teste">
         <v-list-item two-line dense dark color="white" class="px-0">
             <template v-slot:prepend>
                 <v-avatar  min-width="55px" tile class="ava" v-on:click="about = true">
@@ -39,7 +39,7 @@
         <div class="spacer"></div>
         <div style="margin-left:800px">
         <a>
-          <select id="selectBox" onchange="changeSkin();" style=" border: none; background-color: #2A3F54; color: white;" >
+          <select id="selectBox" @change="changeSkin" style=" border: none; background-color: #2A3F54; color: white;" >
             <option value="">Skin</option>
             <option>-----------</option>
             <option value="0">Original</option>       
@@ -76,11 +76,8 @@
     </div>
     </v-app-bar>
 </template>
-
-
 <script>
-//import changeSkin from '../js/functions.js'
-
+import {changeSkin} from '../js/data.js'
 export default {
     data() {
         return{
@@ -116,13 +113,19 @@ export default {
         else if(this.ajuda == 'registo'){
             this.help = 'Esta é a ajuda da página de registo'
         }
+    },
+    setup(){
+      return { changeSkin }
     }
 }
 
 
 </script>
 
+
+
 <style scoped>
+
 .v-toolbar__content, .v-toolbar__extension{
     position: relative;
 }
