@@ -40,14 +40,11 @@
                 >
                 <template #item-opcoes="item">
                     <div class="operation-wrapper">
-                        <v-icon>mdi-eye</v-icon>
-                        <v-icon>mdi-pencil</v-icon>
-                        <v-icon>mdi-delete</v-icon>
+                        <v-icon @click="" v-bind:title="tooltip1">mdi-eye</v-icon>
+                        <v-icon @click="" v-bind:title="tooltip2">mdi-pencil</v-icon>
+                        <v-icon @click="" v-bind:title="tooltip3">mdi-delete</v-icon>
                     </div>
-                    </template>
-                    <template v-slot:item.opcoes="{ item }">
-                        <v-icon>notranslate mr-2 v-icon--link mdi mdi-eye theme--light</v-icon> 
-                    </template>
+                </template>
                 </EasyDataTable>
             </v-col>
         </v-row>
@@ -85,7 +82,10 @@ export default {
             currentPage:0,
             deleteDialog:false,
             tempValue:{},
-            page:1
+            page:1,
+            tooltip1: 'Ver',
+            tooltip2: 'Editar',
+            tooltip3: 'Remover',
         }
     },
     watch: {

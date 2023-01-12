@@ -78,15 +78,15 @@
     >
     <v-card>
     <v-toolbar color="#2A3F54" dark>
-      <h1>Login</h1>
+      <h1 class="white--text" :style="{ marginLeft: '15px' }">Login</h1>
     </v-toolbar>
     <v-row>
-      <v-col style="margin-left:1cm;margin-right:1cm;max-width:20px; margin-top:15px" >
+      <v-col style="margin-left:1cm;margin-right:1cm;max-width:20px; margin-top:20px" >
         <v-icon x-large color="blue" dark>mdi-message-text</v-icon>
       </v-col>
       <v-col>
         <v-card-text>
-          <h3>Pedido de recuperação de credenciais enviado ao sistema.</h3>
+          <h3 class="grey--text">Pedido de recuperação de credenciais enviado ao sistema.</h3>
         </v-card-text>
       </v-col>
     </v-row>
@@ -95,7 +95,7 @@
       <v-spacer></v-spacer>
       <v-tooltip bottom>
         <template v-slot:activator="{ on: tooltip }">
-          <v-btn dark @click="dialogPW = false" style="background-color:lightgray" to="/login" v-on="{ ...tooltip}">
+          <v-btn @click="dialogPW = false" to="/login" v-on="{ ...tooltip}">
             <v-icon>mdi-exit-to-app</v-icon>
           </v-btn>
         </template>
@@ -114,7 +114,7 @@
 >
   <v-card height="100%" width="100%">
     <v-toolbar color="#2A3F54" dark>
-      <h1 color="white">Página de registo</h1>
+      <h1 class="white--text" :style="{ marginLeft: '15px' }">Página de registo</h1>
     </v-toolbar>
     <v-card-actions>
       <v-row
@@ -212,7 +212,7 @@
             <v-tooltip bottom>
               <template v-slot:activator="{ on: tooltip }">
                 <v-btn class="mr-5 mb-10 mt-10" @click.prevent="reset" v-on="{...tooltip}">
-                  <v-icon>mdi-history</v-icon>
+                  <v-icon size="30">mdi-history</v-icon>
                 </v-btn>
               </template>
               <span>
@@ -222,7 +222,7 @@
             <v-tooltip bottom>
               <template #activator="{ on: tooltip }">
                 <v-btn class="mr-5 mb-10 mt-10" @click="post();" v-on="{ ...tooltip}" :disabled="disableButton">
-                  <v-icon>mdi-check</v-icon>
+                  <v-icon size="30">mdi-check</v-icon>
                 </v-btn>
               </template>
               <span>
@@ -232,7 +232,7 @@
             <v-tooltip bottom>
               <template v-slot:activator="{ on: tooltip }">
                 <v-btn class="mb-10 mt-10" @click="dialogPedido = false" v-bind="{ ...tooltip }">
-                  <v-icon>mdi-exit-to-app</v-icon>
+                  <v-icon size="30">mdi-exit-to-app</v-icon>
                 </v-btn>
               </template>
               <span>
@@ -249,7 +249,7 @@
 <v-dialog v-model="dialog" scrollable width="500" persistent>
   <v-card>
     <v-toolbar color="#2A3F54" dark>
-      <h1>Login</h1>
+      <h1 class="white--text" :style="{ marginLeft: '15px' }">Login</h1>
     </v-toolbar>
     <v-row>
       <v-col style="margin-left:1cm;max-width:20px; margin-top:15px">
@@ -324,6 +324,8 @@ import footer2 from '../components/footer2.vue'
 export default {  
   data(){
     return {
+      tooltip1: 'Recuperar Palavra-Passe',
+      tooltip2: 'Registo',
       id : "",
       password : "",
       dialog: false,
@@ -467,6 +469,12 @@ export default {
 }
 </script>
 <style scoped>
+.white--text{
+  color: white;
+}
+.grey--text{
+  color: grey;
+}
   #login *{
             box-sizing: border-box;
   }

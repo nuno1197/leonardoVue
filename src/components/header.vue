@@ -13,12 +13,12 @@
         >
         <v-list-item two-line dense dark color="#2A3F54" class="px-0">
             <template v-slot:prepend>
-                <v-avatar  min-width="55px" tile class="ava" v-on:click="about = true">
+                <v-avatar  size="80" min-width="55px" tile class="ava" v-on:click="about = true">
                     <v-img src="src/assets/logo_original.png" contain/>
                 </v-avatar>
             </template>
-            <v-list-item-title><h2 color>Leonardo</h2></v-list-item-title>
-            <v-list-item-subtitle>Sistema de aferição de conhecimento multidisciplinar</v-list-item-subtitle>
+            <v-list-item-title class="white--text"><h2 color>Leonardo</h2></v-list-item-title>
+            <v-list-item-subtitle class="white--text">Sistema de aferição de conhecimento multidisciplinar</v-list-item-subtitle>
         </v-list-item>
             <v-dialog @keydown.esc="about = false" v-model="about" scrollable width="500">
                 <v-card>
@@ -52,21 +52,21 @@
         <div class="spacer"></div>
         <v-tooltip bottom> 
             <template v-slot:activator="{ on }">
-            <v-btn text small class="white--text change-font" @click="setLocale('pt')" v-on="{on}">PT</v-btn>
+            <v-btn v-bind:title="tooltip1" text small class="white--text change-font" @click="setLocale('pt')" v-on="{on}">PT</v-btn>
             </template>
             <span>PT</span>
         </v-tooltip>
 
         <v-tooltip bottom> 
             <template v-slot:activator="{ on }">
-            <v-btn text small class="white--text change-font" @click="setLocale('es')" v-on="{on}">ES</v-btn>
+            <v-btn v-bind:title="tooltip2" text small class="white--text change-font" @click="setLocale('es')" v-on="{on}">ES</v-btn>
             </template>
             <span>ES</span>
         </v-tooltip>
         
         <v-tooltip bottom> 
             <template v-slot:activator="{ on }">
-            <v-btn text small class="white--text change-font" @click="setLocale('en')" v-on="{on}">UK</v-btn>
+            <v-btn v-bind:title="tooltip3" text small class="white--text change-font" @click="setLocale('en')" v-on="{on}">UK</v-btn>
             </template>
             <span>EN</span>
         </v-tooltip>
@@ -79,7 +79,7 @@
                         v-on="{ ...tooltip, ...menu }"
                         >
                             <v-avatar>
-                                <v-icon size="large">mdi-account-circle</v-icon>
+                                <v-icon v-bind:title="tooltip4" size="40" class="white--text">mdi-account-circle</v-icon>
                             </v-avatar>
                         </v-btn>
                     </template>
@@ -98,8 +98,8 @@
             </v-list>
         </v-menu>
                 <v-list-item disabled dark>
-                        <v-list-item-title>UserName</v-list-item-title>
-                        <v-list-item-subtitle>Admin</v-list-item-subtitle>
+                        <v-list-item-title class="white--text">UserName</v-list-item-title>
+                        <v-list-item-subtitle class="white--text">Admin</v-list-item-subtitle>
                 </v-list-item>
             
     </v-app-bar>
@@ -112,7 +112,11 @@ export default {
         return{
             help: '',
             userPic: '',
-            about:false
+            about:false,
+            tooltip1: 'Língua Portuguesa',
+            tooltip2: 'Idioma Español',
+            tooltip3: 'English Language',
+            tooltip4: 'Opções de perfil de Utilização',
         }
     },
     props:{
@@ -130,6 +134,9 @@ export default {
 </script>
 
 <style scoped>
+.white--text{
+    color: white;
+}
 .v-toolbar__content, .v-toolbar__extension{
     position: relative;
 }

@@ -8,21 +8,21 @@
       </template>
       <v-card>
         <v-toolbar color="#2A3F54" dark>
-          <h2>Cabaneiro kkk</h2>
+          <h2 class="white--text" :style="{ marginLeft: '15px' }">Saber Mais</h2>
         </v-toolbar>
 
         <v-divider class="mx-4" horizontal></v-divider>
 
-        <v-card-text class="change-font mt-6" style="white-space: pre-line">
-          texto saber mais
+        <v-card-text class="grey--text change-font mt-6" style="white-space: pre-line">
+          Texto saber mais
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
 
           <v-tooltip bottom>
             <template #activator="{ on }">
-              <v-btn depressed color="white" @click="dialog=false" v-bind="on">
-                <v-icon large>mdi-exit-to-app</v-icon>
+              <v-btn @click="dialog=false" v-bind="on">
+                <v-icon size="30">mdi-exit-to-app</v-icon>
               </v-btn>
             </template>
             <span>Sair</span>
@@ -45,6 +45,12 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.white--text{
+  color: white;
+}
+.grey--text{
+  color: grey;
+}
 .change-font {
     font-family: "Arial";
 }

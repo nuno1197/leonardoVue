@@ -8,7 +8,7 @@
       </template>
       <v-card>
             <v-toolbar color="#2A3F54" dark>
-                <h2>Créditos</h2>
+                <h2 class="white--text" :style="{ marginLeft: '15px' }">Créditos</h2>
             </v-toolbar>
             
             <v-divider
@@ -16,16 +16,16 @@
             horizontal
             ></v-divider>
             
-            <v-card-text class="change-font mt-6" style="white-space: pre-line"
-                >Créditos</v-card-text
+            <v-card-text class="grey--text change-font mt-6" style="white-space: pre-line"
+                >Créditos texto</v-card-text
             >
             <v-card-actions>
                 <v-spacer></v-spacer>
                 
                 <v-tooltip placement="bottom"> 
                 <template v-slot:activator="{ on }">
-                    <v-btn depressed color="white" @click="dialog=false" v-bind="on">
-                        <v-icon large>mdi-exit-to-app</v-icon>
+                    <v-btn @click="dialog=false" v-bind="on">
+                        <v-icon size="30">mdi-exit-to-app</v-icon>
                     </v-btn>
                     </template>
                     <span>Créditos</span>
@@ -48,6 +48,12 @@ export default {
 </script> 
 
 <style lang="stylus" scoped>
+.white--text{
+  color: white;
+}
+.grey--text{
+  color: grey;
+}
 .change-font {
     font-family: "Arial";
 }

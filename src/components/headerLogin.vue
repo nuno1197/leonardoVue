@@ -2,11 +2,11 @@
       <v-app-bar app color="#2A3F54" id="teste">
         <v-list-item two-line dense dark color="white" class="px-0">
             <template v-slot:prepend>
-                <v-avatar  min-width="55px" tile class="ava" v-on:click="about = true">
+                <v-avatar size="80" min-width="55px" tile class="ava" v-on:click="about = true">
                     <v-img src="src/assets/logo_original.png" contain/>
                 </v-avatar>
             </template>
-            <v-list-item-title><h2 color>Leonardo</h2></v-list-item-title>
+            <v-list-item-title><h3 color>Leonardo</h3></v-list-item-title>
             <v-list-item-subtitle>Sistema de aferição de conhecimento multidisciplinar</v-list-item-subtitle>
         </v-list-item>
         <v-dialog @keydown.esc="about = false" v-model="about" scrollable width="500">
@@ -37,7 +37,7 @@
           </v-card>
         </v-dialog>
         <div class="spacer"></div>
-        <div style="margin-left:800px">
+        <div :style="{ position: 'absolute', right: '0'}">
         <a>
           <select id="selectBox" @change="changeSkin" style=" border: none; background-color: #2A3F54; color: white;" >
             <option value="">Skin</option>
@@ -51,7 +51,7 @@
 
         <v-tooltip >
             <template v-slot:activator="{ on }"  >
-                <v-btn text small class="" @click="setLocale('pt')" v-bind="on" color="white" >
+                <v-btn v-bind:title="tooltip1" text small class="" @click="setLocale('pt')" v-bind="on" color="white" >
                 PT
             </v-btn>
             </template>
@@ -59,7 +59,7 @@
         </v-tooltip>
         <v-tooltip placement="bottom">
             <template v-slot:activator="{ on }">
-            <v-btn text small class="white--text change-font" @click="setLocale('es')" v-bind="on" color="white">
+            <v-btn v-bind:title="tooltip2" text small class="white--text change-font" @click="setLocale('es')" v-bind="on" color="white">
                 ES
             </v-btn>
             </template>
@@ -67,7 +67,7 @@
         </v-tooltip>
         <v-tooltip placement="bottom">
             <template v-slot:activator="{ on }">
-            <v-btn text small class="white--text change-font" @click="setLocale('en')" v-bind="on" color="white">
+            <v-btn v-bind:title="tooltip3" text small class="white--text change-font" @click="setLocale('en')" v-bind="on" color="white">
                 UK
             </v-btn>
             </template>
@@ -82,7 +82,10 @@ export default {
     data() {
         return{
             help:'',
-            about: false
+            about: false,
+            tooltip1: 'Língua Portuguesa',
+            tooltip2: 'Idioma Español',
+            tooltip3: 'English Language',
         }
     },
     props:{
@@ -125,6 +128,9 @@ export default {
 
 
 <style scoped>
+.white--text{
+  color: white;
+}
 
 .v-toolbar__content, .v-toolbar__extension{
     position: relative;
