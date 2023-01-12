@@ -8,7 +8,7 @@
       class="navBar"
     >
     <v-list dense dar>
-      <v-list-item prepend-icon="mdi-home" style="color: #fff;" title="Início"></v-list-item>
+      <v-list-item v-on:click="goToHome" prepend-icon="mdi-home" style="color: #fff;" title="Início"></v-list-item>
 
       <v-list-group 
         active-class="yellow--text"
@@ -19,12 +19,12 @@
       <template v-slot:activator="{ props }">
         <v-list-item v-bind="props" prepend-icon="mdi-database" style="color: #fff;" >Informação Base</v-list-item>
       </template>
-      <v-list-item v-bind="props" style="color: #fff;" title="Responsáveis"></v-list-item>
-      <v-list-item v-bind="props" style="color: #fff;" title="Professores"></v-list-item>
-      <v-list-item v-bind="props" style="color: #fff;" title="Alunos"></v-list-item>
-      <v-list-item v-bind="props" style="color: #fff;" title="Domínios"></v-list-item>
-      <v-list-item v-bind="props" style="color: #fff;" title="Questões"></v-list-item>
-      <v-list-item v-bind="props" style="color: #fff;" title="Testes"></v-list-item>
+      <v-list-item v-on:click="goToResponsaveis" v-bind="props" style="color: #fff;" title="Responsáveis"></v-list-item>
+      <v-list-item v-on:click="goToProfessores" v-bind="props" style="color: #fff;" title="Professores"></v-list-item>
+      <v-list-item v-on:click="goToAlunos" v-bind="props" style="color: #fff;" title="Alunos"></v-list-item>
+      <v-list-item v-on:click="goToDominios" v-bind="props" style="color: #fff;" title="Domínios"></v-list-item>
+      <v-list-item v-on:click="goToQuestoes" v-bind="props" style="color: #fff;" title="Questões"></v-list-item>
+      <v-list-item v-on:click="goToGestaoTestes" v-bind="props" style="color: #fff;" title="Testes"></v-list-item>
 
       </v-list-group>
       <v-list-group
@@ -146,91 +146,111 @@
         <v-list-item v-bind="props" style="color: #fff;" title="Configuração geral"></v-list-item>
       </v-list-group>
 
-      <v-list-item v-on:click="about = true" prepend-icon="mdi-help" style="color: #fff;" title="Ajuda"></v-list-item>
-      <v-list-item v-on:click="about = true" prepend-icon="mdi-text-box-multiple" style="color: #fff;" title="Documentação"></v-list-item>
-      <v-list-item v-on:click="about = true" prepend-icon="mdi-information-outline" style="color: #fff;" title="Acerca de"></v-list-item>
-
-      <v-dialog @keydown.esc="about = false" v-model="about" scrollable width="500">
+      <v-list-item v-on:click="help = true" prepend-icon="mdi-help" style="color: #fff;" title="Ajuda"></v-list-item>
+      <v-dialog @keydown.esc="help = false" v-model="help" scrollable width="500">
             <v-card>
               <v-toolbar color="#2A3F54" dark>
-                <h2>Acerca de</h2>
+                <h2 class="white--text" :style="{ marginLeft: '15px' }">Ajuda</h2>
               </v-toolbar>
-
               <v-divider
               class="mx-4"
               horizontal
             ></v-divider>
-              <v-card-text class="change-font mt-6" style="white-space: pre-line"
-                >Acerca de</v-card-text
+              <v-card-text class="change-font mt-6 grey--text" style="white-space: pre-line"
+                >Texto Ajuda</v-card-text
               >
               <v-card-actions>
                 <v-spacer></v-spacer>
-                
                 <v-tooltip bottom> 
                   <template v-slot:activator="{ on }">
-                      <v-btn depressed color="lightgray" @click="about=false" v-on="{on}">
-                        <v-icon large>mdi-exit-to-app</v-icon>
+                      <v-btn depressed color="lightgray" @click="help=false" v-on="{on}">
+                        <v-icon size="30">mdi-exit-to-app</v-icon>
                       </v-btn>
                     </template>
                     <span>Voltar</span>
                   </v-tooltip>
+              </v-card-actions>
+            </v-card>
+      </v-dialog>
 
+
+      <v-list-item v-on:click="about = true" prepend-icon="mdi-text-box-multiple" style="color: #fff;" title="Documentação"></v-list-item>
+      
+
+
+      <v-list-item v-on:click="about = true" prepend-icon="mdi-information-outline" style="color: #fff;" title="Acerca de"></v-list-item>
+      <v-dialog @keydown.esc="about = false" v-model="about" scrollable width="500">
+            <v-card>
+              <v-toolbar color="#2A3F54" dark>
+                <h2 class="white--text" :style="{ marginLeft: '15px' }">Acerca de</h2>
+              </v-toolbar>
+              <v-divider
+              class="mx-4"
+              horizontal
+            ></v-divider>
+              <v-card-text class="change-font mt-6 grey--text" style="white-space: pre-line"
+                >Texto Acerca de</v-card-text
+              >
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-tooltip bottom> 
+                  <template v-slot:activator="{ on }">
+                      <v-btn depressed color="lightgray" @click="about=false" v-on="{on}">
+                        <v-icon size="30">mdi-exit-to-app</v-icon>
+                      </v-btn>
+                    </template>
+                    <span>Voltar</span>
+                  </v-tooltip>
               </v-card-actions>
             </v-card>
       </v-dialog>
 
       <v-list-item v-on:click="credits = true" prepend-icon="mdi-account-group" style="color: #fff;" title="Créditos"></v-list-item>
-
       <v-dialog @keydown.esc="credits = false"  v-model="credits" scrollable width="500">
         <v-card>
           <v-toolbar color="#2A3F54" dark>
-            <h2>Créditos</h2>
+            <h2 class="white--text" :style="{ marginLeft: '15px' }">Créditos</h2>
           </v-toolbar>
-          
           <v-divider
           class="mx-4"
           horizontal
           ></v-divider>
-          
-          <v-card-text class="change-font mt-6" style="white-space: pre-line"
-            >Créditos</v-card-text
+          <v-card-text class="change-font mt-6 grey--text" style="white-space: pre-line"
+            >Texto Créditos</v-card-text
           >
           <v-card-actions>
             <v-spacer></v-spacer>
-            
             <v-tooltip bottom> 
               <template v-slot:activator="{ on }">
                   <v-btn depressed color="lightgray" @click="credits=false" v-on="{on}">
-                    <v-icon large>mdi-exit-to-app</v-icon>
+                    <v-icon size="30">mdi-exit-to-app</v-icon>
                   </v-btn>
                 </template>
                 <span>Voltar</span>
               </v-tooltip>
-
           </v-card-actions>
         </v-card>
       </v-dialog>
 
       <v-list-item v-on:click="terms = true" prepend-icon="mdi-book-multiple" style="color: #fff;" title="Termos de utilização"></v-list-item>
-
       <v-dialog @keydown.esc="terms = false" v-model="terms" scrollable  width="500">
         <v-card>
           <v-toolbar color="#2A3F54" dark>
-            <h2>Termos de Utilização</h2>
+            <h2 class="white--text" :style="{ marginLeft: '15px' }">Termos de Utilização</h2>
           </v-toolbar>
           <v-divider
             class="mx-4"
             horizontal
           ></v-divider>
-          <v-card-text class="change-font mt-6" style="white-space: pre-line"
-            >Termos de Utilização</v-card-text
+          <v-card-text class="change-font mt-6 grey--text" style="white-space: pre-line"
+            >Texto Termos de Utilização</v-card-text
           >
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-tooltip bottom> 
               <template v-slot:activator="{ on }">
                 <v-btn depressed color="lightgray" @click="terms=false" v-on="{on}">
-                  <v-icon large>mdi-exit-to-app</v-icon>
+                  <v-icon size="30">mdi-exit-to-app</v-icon>
                 </v-btn>
               </template>
               <span>Voltar</span>
@@ -240,23 +260,22 @@
       </v-dialog>
 
       <v-list-item v-on:click="priv = true" prepend-icon="mdi-lock" style="color: #fff;">Privacidade</v-list-item>
-
       <v-dialog @keydown.esc="priv = false" v-model="priv" scrollable width="500"> 
         <v-card>
           <v-toolbar color="#2A3F54" dark>
-            <h2>Privacidade</h2>
+            <h2 class="white--text" :style="{ marginLeft: '15px' }">Privacidade</h2>
           </v-toolbar>
           <v-divider
             class="mx-4"
             horizontal
           ></v-divider>
-          <v-card-text class="change-font mt-6" style="white-space: pre-line">Privacidade</v-card-text>
+          <v-card-text class="change-font mt-6 grey--text" style="white-space: pre-line"> Texto Privacidade</v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>    
                 <v-tooltip bottom> 
                   <template v-slot:activator="{ on }">
                     <v-btn depressed color="lightgray" @click="priv=false" v-on="{on}">
-                      <v-icon large>mdi-exit-to-app</v-icon>
+                      <v-icon size="30">mdi-exit-to-app</v-icon>
                     </v-btn>
                   </template>
                   <span>Voltar</span>
@@ -277,7 +296,31 @@ export default {
       terms: false,
       credits: false,
       about: false,
+      help: false,
     };
+  },
+  methods: {
+    goToHome() {
+      this.$router.push({ path: '../home' });
+    },
+    goToResponsaveis(){
+      this.$router.push({ path: '../responsaveis' });
+    },
+    goToAlunos(){
+      this.$router.push({ path: '../alunos' });
+    },
+    goToProfessores(){
+      this.$router.push({ path: '../professores' });
+    },
+    goToDominios(){
+      this.$router.push({ path: '../dominios' });
+    },
+    goToQuestoes(){
+      this.$router.push({ path: '../questoes' });
+    },
+    goToGestaoTestes(){
+      this.$router.push({ path: '../gestaotestes' });
+    },
   },
   computed: {
     drawerState: {
@@ -289,6 +332,12 @@ export default {
 </script>
 
 <style scoped>
+.white--text{
+  color: white;
+}
+.grey--text{
+  color: grey;
+}
 header {
   background: #2a3f54;
   padding: 10px;
