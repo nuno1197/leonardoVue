@@ -6,7 +6,7 @@ function changeSkin() {
     var selectedValue = selectBox.options[selectBox.selectedIndex].value;
     var topbarelements= document.getElementsByClassName("v-toolbar")
 
-    alert(topbarelements.length);
+    //alert(topbarelements.length);
 
     if (selectedValue==1)
     {
