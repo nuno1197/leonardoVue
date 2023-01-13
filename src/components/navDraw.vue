@@ -37,9 +37,9 @@
       <template v-slot:activator="{ props }">
         <v-list-item v-bind="props" prepend-icon="mdi-wrench" style="color: #fff;" title="Produção"></v-list-item>
       </template>
-      <v-list-item v-bind="props" style="color: #fff;" title="Domínios"></v-list-item>
-      <v-list-item v-bind="props" style="color: #fff;" title="Questões"></v-list-item>
-      <v-list-item v-bind="props" style="color: #fff;" title="Testes"></v-list-item>
+      <v-list-item v-on:click="" v-bind="props" style="color: #fff;" title="Domínios"></v-list-item>
+      <v-list-item v-on:click="" v-bind="props" style="color: #fff;" title="Questões"></v-list-item>
+      <v-list-item v-on:click="" v-bind="props" style="color: #fff;" title="Testes"></v-list-item>
 
       </v-list-group>
       <v-list-group
@@ -50,10 +50,10 @@
         <template v-slot:activator="{ props }">
           <v-list-item v-bind="props" prepend-icon="mdi-check-bold" style="color: #fff;" title="Verificação"></v-list-item>
         </template>
-        <v-list-item v-bind="props" style="color: #fff;" title="Importação de questões"></v-list-item>
-        <v-list-item v-bind="props" style="color: #fff;" title="Verificação de questões"></v-list-item>
-        <v-list-item v-bind="props" style="color: #fff;" title="Verificação de erros"></v-list-item>
-        <v-list-item v-bind="props" style="color: #fff;" title="Dashboard"></v-list-item>
+        <v-list-item v-on:click="" v-bind="props" style="color: #fff;" title="Importação de questões"></v-list-item>
+        <v-list-item v-on:click="" v-bind="props" style="color: #fff;" title="Verificação de questões"></v-list-item>
+        <v-list-item v-on:click="" v-bind="props" style="color: #fff;" title="Verificação de erros"></v-list-item>
+        <v-list-item v-on:click="" v-bind="props" style="color: #fff;" title="Dashboard"></v-list-item>
       </v-list-group>
       <v-list-group
         active-class="yellow--text"
@@ -63,9 +63,9 @@
         <template v-slot:activator="{ props }">
           <v-list-item v-bind="props" prepend-icon="mdi-school" style="color: #fff;" title="Avaliação"></v-list-item>
         </template>
-        <v-list-item v-bind="props" style="color: #fff;" title="Realização de Testes"></v-list-item>
-        <v-list-item v-bind="props" style="color: #fff;" title="Sessões de Quiz"></v-list-item>
-        <v-list-item v-bind="props" style="color: #fff;" title="Resultados"></v-list-item>
+        <v-list-item v-on:click="" v-bind="props" style="color: #fff;" title="Realização de Testes"></v-list-item>
+        <v-list-item v-on:click="" v-bind="props" style="color: #fff;" title="Sessões de Quiz"></v-list-item>
+        <v-list-item v-on:click="" v-bind="props" style="color: #fff;" title="Resultados"></v-list-item>
       </v-list-group>
 
       <v-list-group 
@@ -76,10 +76,10 @@
         <template v-slot:activator="{ props }">
           <v-list-item v-bind="props" prepend-icon="mdi-wechat" style="color: #fff;" title="Opiniões"></v-list-item>
         </template>
-        <v-list-item v-bind="props" style="color: #fff;" title="Inquérito de Sistema"></v-list-item>
-        <v-list-item v-bind="props" style="color: #fff;" title="Análise de Inquéritos"></v-list-item>
-        <v-list-item v-bind="props" style="color: #fff;" title="Estudo de Propriedades"></v-list-item>
-        <v-list-item v-bind="props" style="color: #fff;" title="Sentimentos Expressos"></v-list-item>
+        <v-list-item v-on:click="" v-bind="props" style="color: #fff;" title="Inquérito de Sistema"></v-list-item>
+        <v-list-item v-on:click="" v-bind="props" style="color: #fff;" title="Análise de Inquéritos"></v-list-item>
+        <v-list-item v-on:click="" v-bind="props" style="color: #fff;" title="Estudo de Propriedades"></v-list-item>
+        <v-list-item v-on:click="" v-bind="props" style="color: #fff;" title="Sentimentos Expressos"></v-list-item>
       </v-list-group>
 
       <v-list-group
@@ -90,8 +90,8 @@
         <template v-slot:activator="{ props }">
           <v-list-item v-bind="props" prepend-icon="mdi-trophy-variant" style="color: #fff;" title="Gamificação"></v-list-item>
         </template>
-        <v-list-item v-bind="props" style="color: #fff;" title="Domínios"></v-list-item>
-        <v-list-item v-bind="props" style="color: #fff;" title="Alunos"></v-list-item>
+        <v-list-item v-on:click="" v-bind="props" style="color: #fff;" title="Domínios"></v-list-item>
+        <v-list-item v-on:click="" v-bind="props" style="color: #fff;" title="Alunos"></v-list-item>
       </v-list-group>
 
       <v-list-group
@@ -103,9 +103,9 @@
         <template v-slot:activator="{ props }">
           <v-list-item v-bind="props" prepend-icon="mdi-chart-bar" style="color: #fff;" title="Dashboards"></v-list-item>
         </template>
-        <v-list-item v-bind="props" style="color: #fff;" title="Alunos"></v-list-item>
-        <v-list-item v-bind="props" style="color: #fff;" title="Respostas"></v-list-item>
-        <v-list-item v-bind="props" style="color: #fff;" title="Acessos"></v-list-item>
+        <v-list-item v-on:click="" v-bind="props" style="color: #fff;" title="Alunos"></v-list-item>
+        <v-list-item v-on:click="" v-bind="props" style="color: #fff;" title="Respostas"></v-list-item>
+        <v-list-item v-on:click="" v-bind="props" style="color: #fff;" title="Acessos"></v-list-item>
       </v-list-group>
 
       <v-list-group 
@@ -116,11 +116,12 @@
         <template v-slot:activator="{ props }">
           <v-list-item v-bind="props" prepend-icon="mdi-account-multiple" style="color: #fff;" title="Utilizadores"></v-list-item>
         </template>
-        <v-list-item v-bind="props" style="color: #fff;" title="Pedidos de Acesso"></v-list-item>
-        <v-list-item v-bind="props" style="color: #fff;" title="Importação"></v-list-item>
-        <v-list-item v-bind="props" style="color: #fff;" title="Atividade Corrente"></v-list-item>
-        <v-list-item v-bind="props" style="color: #fff;" title="Historial de Acesso"></v-list-item>
-        <v-list-item v-bind="props" style="color: #fff;" title="Logs"></v-list-item>
+        <v-list-item v-on:click="goToGestaoUsers" v-bind="props" style="color: #fff;" title="Gestão"></v-list-item>
+        <v-list-item v-on:click="" v-bind="props" style="color: #fff;" title="Pedidos de Acesso"></v-list-item>
+        <v-list-item v-on:click="" v-bind="props" style="color: #fff;" title="Importação"></v-list-item>
+        <v-list-item v-on:click="" v-bind="props" style="color: #fff;" title="Atividade Corrente"></v-list-item>
+        <v-list-item v-on:click="" v-bind="props" style="color: #fff;" title="Historial de Acesso"></v-list-item>
+        <v-list-item v-on:click="" v-bind="props" style="color: #fff;" title="Logs"></v-list-item>
       </v-list-group>
 
       <v-list-group
@@ -320,6 +321,9 @@ export default {
     },
     goToGestaoTestes(){
       this.$router.push({ path: '../gestaotestes' });
+    },
+    goToGestaoUsers(){
+      this.$router.push({ path: '../users' });
     },
   },
   computed: {

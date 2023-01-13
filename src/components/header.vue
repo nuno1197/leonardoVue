@@ -70,18 +70,29 @@
             </template>
             <span>EN</span>
         </v-tooltip>
-        <v-menu>
+        <v-menu ref="menu" :close-on-content-click="false">
             <template v-slot:activator="{ on: menu }">
                 <v-tooltip bottom>
                     <template v-slot:activator="{ on: tooltip }">
                         <v-btn
                         fab
                         v-on="{ ...tooltip, ...menu }"
+                        @click="toggleMenu"
                         >
                             <v-avatar>
                                 <v-icon v-bind:title="tooltip4" size="40" class="white--text">mdi-account-circle</v-icon>
                             </v-avatar>
                         </v-btn>
+                        <div v-if="showMenu" role="menu" class="v-menu__content theme--light v-menu__content--fixed menuable__content__active" :style="menuStyle">
+                            <div class="v-list v-sheet theme--light">
+                                <a href="/users/ver" class="v-list-item v-list-item--link theme--light" tabindex="0" role="menuitem" id="list-item-2625">
+                                <div class="v-list-item__title">Consultar perfil de utilização</div>
+                                </a>
+                                <div tabindex="0" text="" role="menuitem" id="list-item-2627" class="v-list-item v-list-item--link theme--light">
+                                <div class="v-list-item__title">Sair</div>
+                                </div>
+                            </div>
+                        </div>
                     </template>
                     <span>
                         Teste
@@ -89,12 +100,16 @@
                 </v-tooltip>
             </template>
             <v-list>
-                <v-list-item >
-                    <v-list-item-title>Teste</v-list-item-title>
-                </v-list-item>
-                <v-list-item text>
-                    <v-list-item-title>Teste</v-list-item-title>
-                </v-list-item>
+            <v-list-item>
+                <v-list-item-title>
+                    Consultar perfil de utilização
+                </v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+                <v-list-item-title>
+                    Sair
+                </v-list-item-title>
+            </v-list-item>
             </v-list>
         </v-menu>
                 <v-list-item disabled dark>
@@ -117,6 +132,16 @@ export default {
             tooltip2: 'Idioma Español',
             tooltip3: 'English Language',
             tooltip4: 'Opções de perfil de Utilização',
+            showMenu: false,
+            menuStyle: {
+                position: 'absolute',
+                top: '50px',
+                left: '1200px',
+                transformOrigin: 'left top',
+                zIndex: '999999',
+                minWidth: '56px',
+                borderRadius: '20px',
+            },
         }
     },
     props:{
@@ -129,7 +154,17 @@ export default {
         get () { return this.$store.getters.drawerState },
         set (v) { return this.$store.commit('toggleDrawerState', v) }
         }
-    }
+    },
+    methods: {
+        toggleMenu() {
+        this.showMenu = !this.showMenu;
+        this.$nextTick(() => {
+            if (this.showMenu) {
+                document.body.appendChild(this.$refs.menu);
+            }
+        });
+    },
+    },
 };
 </script>
 

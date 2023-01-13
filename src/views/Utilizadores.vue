@@ -10,7 +10,7 @@
                 vertical
             ></v-divider>
             <v-spacer></v-spacer>
-            <v-text-field 
+            <v-text-field class="mb-3 mr-3"
                 v-model="searchValue" 
                 clearable 
                 label="Pesquisa"
@@ -20,7 +20,7 @@
             ></v-text-field>
             <v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">    
-                <v-btn v-bind="attrs" v-on="on" class="white--text mr-4" color="#2A3F54" >
+                <v-btn v-bind="attrs" v-on="on" class="white--text mr-4" color="white" :style="{ backgroundColor: '#2A3F54' }" >
                     <v-icon>mdi-account-plus</v-icon>
                 </v-btn>                    
                 </template>
