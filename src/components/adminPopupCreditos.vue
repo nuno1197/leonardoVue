@@ -7,7 +7,7 @@
         </v-btn>
       </template>
       <v-card>
-            <v-toolbar color="#2A3F54" id="testelol" dark>
+            <v-toolbar v-bind:color="colorCode" id="testelol" dark>
                 <h2 class="white--text" :style="{ marginLeft: '15px' }">Créditos</h2>
             </v-toolbar>
             
@@ -38,16 +38,14 @@
 </template>
 
 <script>
-import {changeSkin} from '../js/data.js'
+
 export default {
   data() {
     return {
-      dialog: false
+      dialog: false,
+      colorCode: this.$store.getters.skinColor
     };
-  },
-    setup(){
-      return { changeSkin }
-    }
+  }
 };
 </script> 
 

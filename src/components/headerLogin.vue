@@ -1,5 +1,5 @@
 <template>
-      <v-app-bar app color="#2A3F54" id="teste">
+      <v-app-bar app v-bind:color="colorCode" id="teste">
         <v-list-item two-line dense dark color="white" class="px-0">
             <template v-slot:prepend>
                 <v-avatar size="80" min-width="55px" tile class="ava" v-on:click="about = true">
@@ -39,12 +39,14 @@
         <div class="spacer"></div>
         <div :style="{ position: 'absolute', right: '0'}">
         <a>
-          <select id="selectBox" @change="changeSkin" style=" border: none; background-color: #2A3F54; color: white;" >
-            <option value="">Skin</option>
-            <option>-----------</option>
-            <option value="0">Original</option>       
-            <option value="1">Dark Mode</option>
-            <option value="2">Sun Mode</option>
+          <select id="selectBox" @change="getSkincode" style=" border: none; color: white;" >
+            <option value="#">Mudar Skin</option>
+            <option value="#">-----------</option>
+            <option value="#2A3F54">Original</option>       
+            <option value="#000000">Dark Mode</option>
+            <option value="#088F8F">Blue Green Mode</option>
+            <option value="#097969">Leaf Mode</option>
+            <option value="#6082B6">Ocean Mode</option>
           </select>
         </a>
 
@@ -77,7 +79,6 @@
     </v-app-bar>
 </template>
 <script>
-import {changeSkin} from '../js/data.js'
 export default {
     data() {
         return{
@@ -86,6 +87,7 @@ export default {
             tooltip1: 'Língua Portuguesa',
             tooltip2: 'Idioma Español',
             tooltip3: 'English Language',
+            colorCode: this.$store.getters.skinColor
         }
     },
     props:{
@@ -107,6 +109,24 @@ export default {
             this.$router.push({
                 params: { lang: locale }
             })
+        },
+        getSkincode(){
+          //obter o selectbox
+          var selectBox = document.getElementById("selectBox");
+          //obter valor selecionado
+          var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+          //guardar variavel na sessão
+          this.$store.commit('toggleSkinColor', selectedValue)
+          //atualizar a página para aplicar cor
+          location.reload()
+        
+        }
+
+    },
+    computed: {
+        skinColor: {
+        get () { return this.$store.getters.skinColor },
+        set (v) { return this.$store.commit('toggleSkinColor', v) }
         }
     },
     created(){
@@ -116,9 +136,6 @@ export default {
         else if(this.ajuda == 'registo'){
             this.help = 'Esta é a ajuda da página de registo'
         }
-    },
-    setup(){
-      return { changeSkin }
     }
 }
 
@@ -134,5 +151,9 @@ export default {
 
 .v-toolbar__content, .v-toolbar__extension{
     position: relative;
+}
+
+#selectBox{
+  background-color: v-bind(colorCode);
 }
 </style>

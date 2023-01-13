@@ -7,7 +7,7 @@
         </v-btn>
       </template>
       <v-card>
-        <v-toolbar color="#2A3F54" dark>
+        <v-toolbar v-bind:color="colorCode" dark>
           <h2 class="white--text" :style="{ marginLeft: '15px' }">Privacidade</h2>
         </v-toolbar>
         <v-divider class="mx-4" horizontal></v-divider>
@@ -37,7 +37,8 @@
 export default {
   data() {
     return {
-      dialog: false
+      dialog: false,
+      colorCode: this.$store.getters.skinColor
     };
   }
 };

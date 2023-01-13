@@ -4,7 +4,7 @@
       app
       clipped
       v-model="drawerState"
-      color="#2A3F54"
+      v-bind:color="colorCode"
       class="navBar"
     >
     <v-list dense dar>
@@ -298,6 +298,7 @@ export default {
       credits: false,
       about: false,
       help: false,
+      colorCode: this.$store.getters.skinColor
     };
   },
   methods: {

@@ -33,7 +33,8 @@ export default createStore({
       textoAtualizado: "",
       idTextoAtualizado: "", 
       replacerList: [],
-      drawerState: false
+      drawerState: false,
+      skinColor:"#2A3F54",
     },   
     plugins: [createPersistedState()],   
     mutations: {     
@@ -68,6 +69,9 @@ export default createStore({
         state.user.gender = user.gender
         state.user.degree = user.degree
         state.user.user_type = user.user_type
+      },
+      toggleSkinColor (state, data) {
+        state.skinColor = data
       },
       set_user_domains(state, domains) {
           state.user_domains = domains
@@ -180,7 +184,8 @@ export default createStore({
       currentReplacerList: state => {
         return state.replacerList;
       },
-      drawerState: (state) => state.drawerState
+      drawerState: (state) => state.drawerState,
+      skinColor: (state) => state.skinColor
 
     },
     actions: {},   

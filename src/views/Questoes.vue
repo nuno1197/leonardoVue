@@ -20,7 +20,7 @@
             ></v-text-field>
             <v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">    
-                <v-btn v-bind="attrs" v-on="on" class="white--text mr-4" color="white" :style="{ backgroundColor: '#2A3F54' }">
+                <v-btn id="bttAdd" v-bind="attrs" v-on="on" class="white--text mr-4" color="white">
                     <v-icon>mdi-text-box-plus</v-icon>
                 </v-btn>                    
                 </template>
@@ -28,7 +28,7 @@
             </v-tooltip>
             <v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">    
-                <v-btn v-bind="attrs" v-on="on" class="white--text mr-4" color="white" :style="{ backgroundColor: '#2A3F54' }">
+                <v-btn id="bttAdd" v-bind="attrs" v-on="on" class="white--text mr-4" color="white" >
                     <v-icon>mdi-printer</v-icon>
                 </v-btn>                    
                 </template>
@@ -67,6 +67,7 @@ import NavDraw from '../components/navDraw.vue'
 export default {
     data(){
         return{
+            colorCode: this.$store.getters.skinColor,
             search:'',
             dialog: false,
             ajuda:'questoes',
@@ -140,7 +141,7 @@ const items: Item[] = [
     }
    .customize-table{
     --easy-table-border: 0px solid #445269;
-    --easy-table-header-background-color: #4b779e;
+    --easy-table-header-background-color: v-bind(colorCode);
     --easy-table-header-font-color: #fff;
     --easy-table-header-height: 50px;
     --easy-table-header-font-size: 15px;
@@ -178,5 +179,8 @@ const items: Item[] = [
         font-family: Arial, sans-serif;
         font-weight: bold;
         font-size: 15px;
+    }
+    #bttAdd{
+        background-color: v-bind(colorCode);
     }
 </style>

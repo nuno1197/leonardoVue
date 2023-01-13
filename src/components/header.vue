@@ -1,5 +1,5 @@
 <template>
-    <v-app-bar app color="#2A3F54" height="100" clipped-left>
+    <v-app-bar app v-bind:color="colorCode" height="100" clipped-left>
         <v-app-bar-nav-icon 
             @click="drawerState = !drawerState"
             color="#FFF"
@@ -8,7 +8,7 @@
             nav
             dense
             dark
-            color="#2A3F54"
+            v-bind:color="colorCode"
             style="background-color:inherit"
         >
         <v-list-item two-line dense dark color="#2A3F54" class="px-0">
@@ -22,7 +22,7 @@
         </v-list-item>
             <v-dialog @keydown.esc="about = false" v-model="about" scrollable width="500">
                 <v-card>
-                    <v-toolbar color="#2A3F54" dark>
+                    <v-toolbar v-bind:color="colorCode" dark>
                         <h2>Saber mais</h2>
                     </v-toolbar>
                     <v-divider
@@ -50,6 +50,18 @@
             </v-dialog>
         </v-list>
         <div class="spacer"></div>
+    <div :style="{ position: 'absolute', right: '0'}">
+                <a>
+          <select id="selectBox" @change="getSkincode" style=" border: none; color: white;" >
+            <option value="#">Mudar Skin</option>
+            <option value="#">-----------</option>
+            <option value="#2A3F54">Original</option>       
+            <option value="#000000">Dark Mode</option>
+            <option value="#088F8F">Blue Green Mode</option>
+            <option value="#097969">Leaf Mode</option>
+            <option value="#6082B6">Ocean Mode</option>
+          </select>
+        </a>
         <v-tooltip bottom> 
             <template v-slot:activator="{ on }">
             <v-btn v-bind:title="tooltip1" text small class="white--text change-font" @click="setLocale('pt')" v-on="{on}">PT</v-btn>
@@ -70,6 +82,7 @@
             </template>
             <span>EN</span>
         </v-tooltip>
+    </div>
         <v-menu ref="menu" :close-on-content-click="false">
             <template v-slot:activator="{ on: menu }">
                 <v-tooltip bottom>
@@ -133,6 +146,7 @@ export default {
             tooltip3: 'English Language',
             tooltip4: 'Opções de perfil de Utilização',
             showMenu: false,
+            colorCode: this.$store.getters.skinColor,
             menuStyle: {
                 position: 'absolute',
                 top: '50px',
@@ -153,6 +167,10 @@ export default {
         drawerState: {
         get () { return this.$store.getters.drawerState },
         set (v) { return this.$store.commit('toggleDrawerState', v) }
+        },
+        skinColor: {
+        get () { return this.$store.getters.skinColor },
+        set (v) { return this.$store.commit('toggleSkinColor', v) }
         }
     },
     methods: {
@@ -164,6 +182,17 @@ export default {
             }
         });
     },
+        getSkincode(){
+          //obter o selectbox
+          var selectBox = document.getElementById("selectBox");
+          //obter valor selecionado
+          var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+          //guardar variavel na sessão
+          this.$store.commit('toggleSkinColor', selectedValue)
+          //atualizar a página para aplicar cor
+          location.reload()
+        
+        }
     },
 };
 </script>
@@ -181,5 +210,9 @@ export default {
 h1{
     color:white;
     text-align:center;
+}
+
+#selectBox{
+  background-color: v-bind(colorCode);
 }
 </style>
