@@ -3,9 +3,11 @@
         <appHeader :ajuda='ajuda'></appHeader>
         <navDraw></navDraw>
         <v-toolbar style="padding-top:100px;background-color:white">
-            <v-toolbar-title>Professores</v-toolbar-title>
+            <div style="flex: 1;padding-left: 12px;">
+                <v-toolbar-title>Professores</v-toolbar-title>
+            </div>
             <v-divider
-                class="mx-4"
+                class="mx-8"
                 inset
                 vertical
             ></v-divider>

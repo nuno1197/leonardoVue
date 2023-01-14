@@ -7,7 +7,7 @@
         </v-btn>
       </template>
       <v-card>
-            <v-toolbar v-bind:color="colorCode" id="testelol" dark>
+            <v-toolbar v-bind:color="colorCode">
                 <h2 class="white--text" :style="{ marginLeft: '15px' }">Créditos</h2>
             </v-toolbar>
             
@@ -38,7 +38,6 @@
 </template>
 
 <script>
-
 export default {
   data() {
     return {

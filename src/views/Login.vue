@@ -77,7 +77,7 @@
       persistent
     >
     <v-card>
-    <v-toolbar color="#2A3F54" dark>
+    <v-toolbar v-bind:color="colorCode"  dark>
       <h1 class="white--text" :style="{ marginLeft: '15px' }">Login</h1>
     </v-toolbar>
     <v-row>
@@ -113,7 +113,7 @@
   persistent
 >
   <v-card height="100%" width="100%">
-    <v-toolbar color="#2A3F54" dark>
+    <v-toolbar v-bind:color="colorCode"  dark>
       <h1 class="white--text" :style="{ marginLeft: '15px' }">Página de registo</h1>
     </v-toolbar>
     <v-card-actions>
@@ -248,7 +248,7 @@
 </v-dialog>
 <v-dialog v-model="dialog" scrollable width="500" persistent>
   <v-card>
-    <v-toolbar color="#2A3F54" dark>
+    <v-toolbar v-bind:color="colorCode"  dark>
       <h1 class="white--text" :style="{ marginLeft: '15px' }">Login</h1>
     </v-toolbar>
     <v-row>
@@ -279,7 +279,7 @@
 </v-dialog>
 <v-dialog @keydown.esc="failureDialog = false" v-model="failureDialog" scrollable width="500"> 
     <v-card>
-      <v-toolbar color="#2A3F54" dark>
+      <v-toolbar v-bind:color="colorCode"  dark>
         <h2>Página de registro</h2>
       </v-toolbar>
       <v-divider
@@ -360,6 +360,7 @@ export default {
             return pattern.test(value) || 'Invalid e-mail.'
           },
       },
+      colorCode: this.$store.getters.skinColor
     }
   },
   created(){

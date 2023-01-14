@@ -50,8 +50,8 @@
             </v-dialog>
         </v-list>
         <div class="spacer"></div>
-    <div :style="{ position: 'absolute', right: '0'}">
-                <a>
+   
+        <a>
           <select id="selectBox" @change="getSkincode" style=" border: none; color: white;" >
             <option value="#">Mudar Skin</option>
             <option value="#">-----------</option>
@@ -82,7 +82,6 @@
             </template>
             <span>EN</span>
         </v-tooltip>
-    </div>
         <v-menu ref="menu" :close-on-content-click="false">
             <template v-slot:activator="{ on: menu }">
                 <v-tooltip bottom>
@@ -96,9 +95,9 @@
                                 <v-icon v-bind:title="tooltip4" size="40" class="white--text">mdi-account-circle</v-icon>
                             </v-avatar>
                         </v-btn>
-                        <div v-if="showMenu" role="menu" class="v-menu__content theme--light v-menu__content--fixed menuable__content__active" :style="menuStyle">
+                        <div v-if="showMenu" role="menu" class="v-menu__content theme--light v-menu__content--fixed menuable__content__active" >
                             <div class="v-list v-sheet theme--light">
-                                <a href="/users/ver" class="v-list-item v-list-item--link theme--light" tabindex="0" role="menuitem" id="list-item-2625">
+                                <a class="v-list-item v-list-item--link theme--light" tabindex="0" role="menuitem" id="list-item-2625">
                                 <div class="v-list-item__title">Consultar perfil de utilização</div>
                                 </a>
                                 <div tabindex="0" text="" role="menuitem" id="list-item-2627" class="v-list-item v-list-item--link theme--light">
@@ -112,18 +111,6 @@
                     </span>
                 </v-tooltip>
             </template>
-            <v-list>
-            <v-list-item>
-                <v-list-item-title>
-                    Consultar perfil de utilização
-                </v-list-item-title>
-            </v-list-item>
-            <v-list-item>
-                <v-list-item-title>
-                    Sair
-                </v-list-item-title>
-            </v-list-item>
-            </v-list>
         </v-menu>
                 <v-list-item disabled dark>
                         <v-list-item-title class="white--text">UserName</v-list-item-title>
@@ -148,7 +135,6 @@ export default {
             showMenu: false,
             colorCode: this.$store.getters.skinColor,
             menuStyle: {
-                position: 'absolute',
                 top: '50px',
                 left: '1200px',
                 transformOrigin: 'left top',
@@ -215,4 +201,6 @@ h1{
 #selectBox{
   background-color: v-bind(colorCode);
 }
+
+
 </style>
