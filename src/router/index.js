@@ -8,6 +8,7 @@ import ProfessoresView from '../views/Professores.vue'
 import DominiosView from '../views/Dominios.vue'
 import QuestoesView from '../views/Questoes.vue'
 import GestaoTestesView from '../views/GestaoTestes.vue'
+import ConfiguradorView from '../views/Configurador.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -56,6 +57,11 @@ const router = createRouter({
       path: '/gestaotestes',
       name: 'gestaotestes',
       component: GestaoTestesView
+    },
+    {
+      path: '/configurador',
+      name: 'configurador',
+      component: ConfiguradorView
     }
     
   ]

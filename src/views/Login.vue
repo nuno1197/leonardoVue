@@ -3,7 +3,7 @@
 <v-app>
   <div>
     <loginHeader :ajuda='ajuda'></loginHeader>
-    <v-row class="pt-12" justify="space-evenly" >
+    <v-row class="pt-12" justify="center" >
       <v-col cols="12" sm="4" offset-sm="0">
         <v-img class="center" src="src/assets/leonardo_logo.png" max-height="500px" max-width="500px" @click="popup = true"/>
         <div class="text">
@@ -109,7 +109,7 @@
 <v-dialog
   v-model="dialogPedido"
   scrollable 
-  width="700"
+  width="900"
   persistent
 >
   <v-card height="100%" width="100%">
@@ -118,127 +118,139 @@
     </v-toolbar>
     <v-card-actions>
       <v-row
-            class="fill-height"
+            class="fill-width"
             align="center"
             justify="center"
           >
-      <div style="width:500px">
+      <div style="width:800px">
         <v-form ref="form" method="post" enctype="multipart/form-data">
           <v-container>
             <v-row>
-              <v-text-field
-                label="Username"
-                v-model="pedido.username"
-                :rules="[rules.required]"
-                required
-              />
-              <h5 style="color:red">*</h5>
-            </v-row>
-            <v-row>
-              <v-text-field
-                label="Password"
-                type="password"
-                v-model="pedido.pw"
-                :rules="[rules.required]"
-              />
-              <h5 style="color:red">*</h5>
-            </v-row>
-            <v-row>
-              <v-text-field
+              <v-col md="3">
+                <v-text-field
+                  label="Username"
+                  v-model="pedido.username"
+                  :rules="[rules.required]"
+                  required
+                />
+              </v-col>
+              <v-col md="3">
+                <v-text-field
+                  label="Password"
+                  type="password"
+                  v-model="pedido.pw"
+                  :rules="[rules.required]"
+                />
+              </v-col>
+              <v-col md="6">
+                <v-text-field
                   label="Nome"
                   v-model="pedido.nome"
                   :rules="[rules.required]"                    
               />
-              <h5 style="color:red">*</h5>
+              </v-col>
             </v-row>
             <v-row>
-              <v-text-field
-                  label="Número de Aluno"
+              <v-col md="2" class="mt-n10">
+                <v-text-field
+                  label="Nº Aluno"
                   v-model="pedido.studentNumber"
                   :rules="[rules.required]"                    
               />
-              <h5 style="color:red">*</h5>
-            </v-row>
-            <v-row>
-              <v-text-field
+              </v-col>
+              <v-col md="4" class="mt-n10">
+                <v-text-field
                   label="Email"
                   v-model="pedido.email"
                   :rules="[rules.required, rules.email]"
-                  required                     
+                  required                    
               />
-              <h5 style="color:red">*</h5>
-            </v-row>
-            <v-container fluid>
-              <v-row>
-                <label>Tipo</label>
-                <h5 style="color:red">*</h5>
-              </v-row>
-              <v-radio-group v-model="pedido.tipo" :rules="[rules.required]" column >
-                <v-radio label="Admin" value="Admin"></v-radio>
-                <v-radio label="Teacher" value="Teacher"></v-radio>
-                <v-radio label="Student" value="Student"></v-radio>
-                <v-radio label="Leitor" value="Leitor"></v-radio>
-              </v-radio-group>
-            </v-container>
-            <v-row>
-              <v-text-field
+              </v-col>
+              <v-col md="3" class="mt-n10">
+                <v-text-field
                   label="Universidade"
                   :rules="[rules.required]"
                   v-model="pedido.universidade"             
               />
-              <h5 style="color:red">*</h5>
-            </v-row>
-            <v-row>
-              <v-text-field
+              </v-col>
+              <v-col md="3" class="mt-n10">
+                <v-text-field
                   label="Departamento"
                   :rules="[rules.required]"
                   v-model="pedido.departamento"                      
               />
-              <h5 style="color:red">*</h5>
+              </v-col>
             </v-row>
+            <v-container fluid class="mt-n5">
+              <v-row>
+                <label>Tipo</label>
+                <h5 style="color:red">*</h5>
+              </v-row>
+              <v-row class="mt-n3">
+                <v-col cols="3">
+                  <v-radio v-model="pedido.tipo" :label="'Admin'" :value="'Admin'" :rules="[rules.required]"></v-radio>
+                </v-col>
+                <v-col cols="3">
+                  <v-radio v-model="pedido.tipo" :label="'Teacher'" :value="'Teacher'" :rules="[rules.required]"></v-radio>
+                </v-col>
+                <v-col cols="3">
+                  <v-radio v-model="pedido.tipo" :label="'Student'" :value="'Student'" :rules="[rules.required]"></v-radio>
+                </v-col>
+                <v-col cols="3">
+                  <v-radio v-model="pedido.tipo" :label="'Leitor'" :value="'Leitor'" :rules="[rules.required]"></v-radio>
+                </v-col>
+              </v-row>
+            </v-container>
             <v-row align="center">
-              <label>Adicionar fotografia:</label>
-              <v-file-input v-model="pedido.foto" show-size label="File input" />
+              <v-col md="5" class="mt-n1">
+                <label>Adicionar fotografia:</label>
+                <v-file-input v-model="pedido.foto" show-size label="File input" />
+              </v-col>
+              <v-col md="5" class="mt-n1">
+                <label>CV:</label>
+                <v-file-input show-size type="file" label="File input" v-model="pedido.curriculo"></v-file-input>
+              </v-col>
+              
             </v-row>
-            <v-row align="center">
-              <label>CV:</label>
-              <v-file-input show-size type="file" label="File input" v-model="pedido.curriculo"></v-file-input>
-            </v-row>
-            <v-text-field
+            <v-col md="8" class="mt-n10">
+              <v-text-field
                 label="Observações"
                 v-model="pedido.comments"                     
-            />
+              />
+            </v-col>
             <br>
-            <v-tooltip bottom>
-              <template v-slot:activator="{ on: tooltip }">
-                <v-btn class="mr-5 mb-10 mt-10" @click.prevent="reset" v-on="{...tooltip}">
-                  <v-icon size="30">mdi-history</v-icon>
-                </v-btn>
-              </template>
-              <span>
-                Repôr
-              </span>
-            </v-tooltip>
-            <v-tooltip bottom>
-              <template #activator="{ on: tooltip }">
-                <v-btn class="mr-5 mb-10 mt-10" @click="post();" v-on="{ ...tooltip}" :disabled="disableButton">
-                  <v-icon size="30">mdi-check</v-icon>
-                </v-btn>
-              </template>
-              <span>
-                TESTE
-              </span>
-            </v-tooltip>
-            <v-tooltip bottom>
-              <template v-slot:activator="{ on: tooltip }">
-                <v-btn class="mb-10 mt-10" @click="dialogPedido = false" v-bind="{ ...tooltip }">
-                  <v-icon size="30">mdi-exit-to-app</v-icon>
-                </v-btn>
-              </template>
-              <span>
-                Fechar
-              </span>
-            </v-tooltip>
+            <v-col class="mt-n10" align="center">
+              <v-tooltip bottom>
+                <template v-slot:activator="{ on: tooltip }">
+                  <v-btn  @click.prevent="reset" v-on="{...tooltip}">
+                    <v-icon size="30">mdi-history</v-icon>
+                  </v-btn>
+                </template>
+                <span>
+                  Repôr
+                </span>
+              </v-tooltip>
+              <v-tooltip bottom>
+                <template #activator="{ on: tooltip }">
+                  <v-btn @click="post();" v-on="{ ...tooltip}" :disabled="disableButton">
+                    <v-icon size="30">mdi-check</v-icon>
+                  </v-btn>
+                </template>
+                <span>
+                  TESTE
+                </span>
+              </v-tooltip>
+              <v-tooltip bottom>
+                <template v-slot:activator="{ on: tooltip }">
+                  <v-btn  @click="dialogPedido = false" v-bind="{ ...tooltip }">
+                    <v-icon size="30">mdi-exit-to-app</v-icon>
+                  </v-btn>
+                </template>
+                <span>
+                  Fechar
+                </span>
+              </v-tooltip>
+            </v-col>
           </v-container>
         </v-form>
       </div>
@@ -246,72 +258,6 @@
     </v-card-actions>
     </v-card>
 </v-dialog>
-<v-dialog v-model="dialog" scrollable width="500" persistent>
-  <v-card>
-    <v-toolbar v-bind:color="colorCode"  dark>
-      <h1 class="white--text" :style="{ marginLeft: '15px' }">Login</h1>
-    </v-toolbar>
-    <v-row>
-      <v-col style="margin-left:1cm;max-width:20px; margin-top:15px">
-        <v-icon x-large color="#c9302c" dark>mdi-close</v-icon>
-      </v-col>
-      <v-col>
-        <v-card-text class="mt-2">
-          TESTE
-        </v-card-text>
-      </v-col>
-    </v-row>
-
-    <v-card-actions>
-      <v-spacer />
-      <v-tooltip bottom>
-        <template v-slot:activator="{ on: tooltip }">
-          <v-btn @click="dialog = false" to="/login" v-on="{ ...tooltip}">
-            <v-icon>mdi-exit-to-app</v-icon>
-          </v-btn>
-        </template>
-        <span>
-          Fechar
-        </span>
-      </v-tooltip>
-    </v-card-actions>
-  </v-card>
-</v-dialog>
-<v-dialog @keydown.esc="failureDialog = false" v-model="failureDialog" scrollable width="500"> 
-    <v-card>
-      <v-toolbar v-bind:color="colorCode"  dark>
-        <h2>Página de registro</h2>
-      </v-toolbar>
-      <v-divider
-        class="mx-4"
-        horizontal
-      ></v-divider>
-
-      <v-row>
-        <v-col style="margin-left:1cm;max-width:20px; margin-top:15px" >
-          <v-icon x-large color="#c9302c" dark>mdi-close</v-icon>
-        </v-col>
-        <v-col>
-          <v-card-text class="mt-2">
-            TESTE
-          </v-card-text>
-        </v-col>
-      </v-row>
-      <v-card-actions>
-        <v-spacer></v-spacer>
-        
-        <v-tooltip bottom> 
-          <template v-slot:activator="{ on }">
-            <v-btn depressed color="white" @click="failureDialog=false" v-on="on">
-              <v-icon large>mdi-exit-to-app</v-icon>
-              </v-btn>
-            </template>
-            <span>Sair</span>
-          </v-tooltip>
-        </v-card-actions>
-      </v-card>
-      </v-dialog>
-      <v-container />
     <appFooter></appFooter>
   </div>
 </v-app>
@@ -463,6 +409,9 @@ export default {
         }
     } 
   },
+    isSelected: function() {
+        return this.selected === this.pedido.tipo
+    },
   components:{
     'loginHeader': loginHeader,
     'appFooter': footer2

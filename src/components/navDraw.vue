@@ -145,6 +145,7 @@
           <v-list-item v-bind="props" prepend-icon="mdi-cog" style="color: #fff;" title="Definições"></v-list-item>
         </template>
         <v-list-item v-bind="props" style="color: #fff;" title="Configuração geral"></v-list-item>
+        <v-list-item v-on:click="goToConfigurador" v-bind="props" style="color: #fff;" title="Configuração de skin"></v-list-item>
       </v-list-group>
 
       <v-list-item v-on:click="help = true" prepend-icon="mdi-help" style="color: #fff;" title="Ajuda"></v-list-item>
@@ -325,6 +326,9 @@ export default {
     },
     goToGestaoUsers(){
       this.$router.push({ path: '../users' });
+    },
+    goToConfigurador(){
+      this.$router.push({ path: '../configurador' });
     },
   },
   computed: {
