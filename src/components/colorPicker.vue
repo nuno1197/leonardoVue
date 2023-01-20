@@ -1,6 +1,6 @@
 <template>
     <div>
-      <v-btn :color="selectedColor ? selectedColor : 'white'" @click="showColorPicker = !showColorPicker">Select a color</v-btn>
+      <v-btn :style="{'background-color': colorBtt}" @click="showColorPicker = !showColorPicker">Select a color</v-btn>
       <span v-if="selectedColor" :style="{backgroundColor: selectedColor}" class="color-circle"></span>
       <v-menu v-model="showColorPicker" :close-on-content-click="false" class="justify-center align-center">
         <v-color-picker v-model="selectedColor"></v-color-picker>
@@ -17,11 +17,13 @@ export default {
   data() {
     return {
       selectedColor: '',
-      showColorPicker: false
+      showColorPicker: false,
+      colorBtt: 'white'
     }
   },
   methods: {
     confirmSelection() {
+      this.colorBtt = this.selectedColor;
       this.showColorPicker = false
     },
     cancelSelection() {
