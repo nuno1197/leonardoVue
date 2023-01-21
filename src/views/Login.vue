@@ -306,7 +306,8 @@ export default {
             return pattern.test(value) || 'Invalid e-mail.'
           },
       },
-      colorCode: this.$store.getters.skinColor
+      colorCode: this.$store.getters.skinColor,
+      topNavColor: this.$store.getters.topNavCode,
     }
   },
   created(){

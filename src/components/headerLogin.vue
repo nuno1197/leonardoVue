@@ -1,5 +1,5 @@
 <template>
-      <v-app-bar app v-bind:color="colorCode" id="teste">
+      <v-app-bar app v-bind:color="navCode" id="teste">
         <v-list-item two-line dense dark color="white" class="px-0">
             <template v-slot:prepend>
                 <v-avatar size="80" min-width="55px" tile class="ava" v-on:click="about = true">
@@ -85,7 +85,8 @@ export default {
             tooltip1: 'Língua Portuguesa',
             tooltip2: 'Idioma Español',
             tooltip3: 'English Language',
-            colorCode: this.$store.getters.skinColor
+            colorCode: this.$store.getters.skinColor,
+            navCode:this.$store.getters.topNavColor
         }
     },
     props:{
@@ -115,6 +116,9 @@ export default {
           var selectedValue = selectBox.options[selectBox.selectedIndex].value;
           //guardar variavel na sessão
           this.$store.commit('toggleSkinColor', selectedValue)
+
+          this.$store.commit('toggleTopNavColor', selectedValue)
+
           //atualizar a página para aplicar cor
           location.reload()
         
@@ -125,6 +129,10 @@ export default {
         skinColor: {
         get () { return this.$store.getters.skinColor },
         set (v) { return this.$store.commit('toggleSkinColor', v) }
+        },
+        navCode: {
+        get () { return this.$store.getters.topnavColor },
+        set (v) { return this.$store.commit('toggleTopNavColor', v) }
         }
     },
     created(){

@@ -35,6 +35,7 @@ export default createStore({
       replacerList: [],
       drawerState: false,
       skinColor:"#2A3F54",
+      topnavColor:"#2A3F54",
     },   
     plugins: [createPersistedState()],   
     mutations: {     
@@ -72,6 +73,9 @@ export default createStore({
       },
       toggleSkinColor (state, data) {
         state.skinColor = data
+      },
+      toggleTopNavColor (state, data) {
+        state.topnavColor = data
       },
       set_user_domains(state, domains) {
           state.user_domains = domains
@@ -185,7 +189,8 @@ export default createStore({
         return state.replacerList;
       },
       drawerState: (state) => state.drawerState,
-      skinColor: (state) => state.skinColor
+      skinColor: (state) => state.skinColor,
+      topnavColor: (state) => state.topnavColor
 
     },
     actions: {},   
