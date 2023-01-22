@@ -36,6 +36,7 @@ export default createStore({
       drawerState: false,
       skinColor:"#2A3F54",
       topnavColor:"#2A3F54",
+      bttColor:"#2A3F54",
     },   
     plugins: [createPersistedState()],   
     mutations: {     
@@ -76,6 +77,9 @@ export default createStore({
       },
       toggleTopNavColor (state, data) {
         state.topnavColor = data
+      },
+      toggleBttColor (state, data) {
+        state.bttColor = data
       },
       set_user_domains(state, domains) {
           state.user_domains = domains
@@ -190,7 +194,8 @@ export default createStore({
       },
       drawerState: (state) => state.drawerState,
       skinColor: (state) => state.skinColor,
-      topnavColor: (state) => state.topnavColor
+      topnavColor: (state) => state.topnavColor,
+      bttColor: (state) => state.topnavColor
 
     },
     actions: {},   

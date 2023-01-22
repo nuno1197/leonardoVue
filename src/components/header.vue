@@ -1,5 +1,5 @@
 <template>
-    <v-app-bar app v-bind:color="colorCode" height="100" clipped-left>
+    <v-app-bar app v-bind:color="navCode" height="100" clipped-left>
         <v-app-bar-nav-icon 
             @click="drawerState = !drawerState"
             color="#FFF"
@@ -8,10 +8,10 @@
             nav
             dense
             dark
-            v-bind:color="colorCode"
+            v-bind:color="navCode"
             style="background-color:inherit"
         >
-        <v-list-item two-line dense dark color="#2A3F54" class="px-0">
+        <v-list-item two-line dense dark v-bind:color="navCode" class="px-0">
             <template v-slot:prepend>
                 <v-avatar  size="80" min-width="55px" tile class="ava" v-on:click="about = true">
                     <v-img src="src/assets/logo_original.png" contain/>
@@ -22,7 +22,7 @@
         </v-list-item>
             <v-dialog @keydown.esc="about = false" v-model="about" scrollable width="500">
                 <v-card>
-                    <v-toolbar v-bind:color="colorCode" dark>
+                    <v-toolbar v-bind:color="navCode" dark>
                     <h2 class="white--text" :style="{ marginLeft: '15px' }">Saber Mais</h2>
                     </v-toolbar>
 
@@ -131,6 +131,7 @@ export default {
             tooltip4: 'Opções de perfil de Utilização',
             showMenu: false,
             colorCode: this.$store.getters.skinColor,
+            navCode:this.$store.getters.topNavColor,
             menuStyle: {
                 top: '50px',
                 left: '1200px',
@@ -154,6 +155,10 @@ export default {
         skinColor: {
         get () { return this.$store.getters.skinColor },
         set (v) { return this.$store.commit('toggleSkinColor', v) }
+        },
+        navCode: {
+        get () { return this.$store.getters.topnavColor },
+        set (v) { return this.$store.commit('toggleTopNavColor', v) }
         }
     },
     methods: {
@@ -196,7 +201,7 @@ h1{
 }
 
 #selectBox{
-  background-color: v-bind(colorCode);
+  background-color: v-bind(navCode);
 }
 
 

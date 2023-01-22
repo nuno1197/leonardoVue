@@ -32,7 +32,7 @@
                     </v-col>
                 </v-row>
             </v-container>
-            <v-btn class="primary" @click="submitForm">Submit</v-btn>
+            <v-btn class="primary" @click="submitForm">Voltar ao Original</v-btn>
             <!-- <v-btn class="secondary" @click="resetForm">Reset</v-btn> -->
         </v-form>
         </div>
@@ -49,6 +49,9 @@ export default {
     return {
         colorCode: this.$store.getters.skinColor,
         colorButtons: 'white',
+        colorHeader: 'white',
+        navCode:this.$store.getters.topNavColor,
+        bttColor:this.$store.getters.bttColor
     }
     },
     components:{
@@ -59,10 +62,19 @@ export default {
     watch: {
         colorButtons: function (newValue) {
             console.log("colorButtons", newValue)
+        },
+        colorHeader: function(newValue){
+            this.$store.commit('toggleTopNavColor', newValue)
+            console.log(this.navCode);
+                
+           
         }
+
     },
     methods: {
     submitForm() {
+        //atualizar a página para aplicar cor
+        location.reload()
     },
     resetForm() {
       this.selectedColor = ''

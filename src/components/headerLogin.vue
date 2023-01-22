@@ -160,6 +160,6 @@ export default {
 }
 
 #selectBox{
-  background-color: v-bind(colorCode);
+  background-color: v-bind(navCode);
 }
 </style>
