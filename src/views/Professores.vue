@@ -62,6 +62,7 @@ export default {
     data(){
         return{
             colorCode: this.$store.getters.skinColor,
+            bttCode:this.$store.getters.bttColor,
             search:'',
             dialog: false,
             ajuda:'professores',
@@ -174,6 +175,6 @@ const items: Item[] = [
         font-size: 15px;
     }
     #bttAdd{
-        background-color: v-bind(colorCode);
+        background-color: v-bind(bttCode);
     }
 </style>

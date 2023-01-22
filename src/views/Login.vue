@@ -77,7 +77,7 @@
       persistent
     >
     <v-card>
-    <v-toolbar v-bind:color="colorCode"  dark>
+    <v-toolbar v-bind:color="navCode"  dark>
       <h1 class="white--text" :style="{ marginLeft: '15px' }">Login</h1>
     </v-toolbar>
     <v-row>
@@ -113,7 +113,7 @@
   persistent
 >
   <v-card height="100%" width="100%">
-    <v-toolbar v-bind:color="colorCode"  dark>
+    <v-toolbar v-bind:color="navCode"  dark>
       <h1 class="white--text" :style="{ marginLeft: '15px' }">Página de registo</h1>
     </v-toolbar>
     <v-card-actions>
@@ -307,7 +307,7 @@ export default {
           },
       },
       colorCode: this.$store.getters.skinColor,
-      topNavColor: this.$store.getters.topNavCode,
+      navCode:this.$store.getters.topnavColor,
     }
   },
   created(){

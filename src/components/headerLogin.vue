@@ -6,7 +6,7 @@
                     <v-img src="src/assets/logo_original.png" contain/>
                 </v-avatar>
             </template>
-            <v-list-item-title><h3 color>Leonardo</h3></v-list-item-title>
+            <v-list-item-title color><h3 color>Leonardo</h3></v-list-item-title>
             <v-list-item-subtitle>Sistema de aferição de conhecimento multidisciplinar</v-list-item-subtitle>
         </v-list-item>
         <v-dialog @keydown.esc="about = false" v-model="about" scrollable width="500">
@@ -35,18 +35,7 @@
           </v-card>
         </v-dialog>
         <div class="spacer"></div>
-        <div :style="{ position: 'absolute', right: '0'}">
-        <a>
-          <select id="selectBox" @change="getSkincode" style=" border: none; color: white;" >
-            <option value="#">Mudar Skin</option>
-            <option value="#">-----------</option>
-            <option value="#2A3F54">Original</option>       
-            <option value="#000000">Dark Mode</option>
-            <option value="#088F8F">Blue Green Mode</option>
-            <option value="#097969">Leaf Mode</option>
-            <option value="#6082B6">Ocean Mode</option>
-          </select>
-        </a>
+        <div :style="{ position: 'absolute', right: '0'}" color="white">
 
 
         <v-tooltip >
@@ -86,7 +75,8 @@ export default {
             tooltip2: 'Idioma Español',
             tooltip3: 'English Language',
             colorCode: this.$store.getters.skinColor,
-            navCode:this.$store.getters.topNavColor
+            navCode:this.$store.getters.topnavColor,
+            navBarCode:this.$store.getters.navBarColor
         }
     },
     props:{

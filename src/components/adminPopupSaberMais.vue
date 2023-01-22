@@ -7,7 +7,7 @@
         </v-btn>
       </template>
       <v-card>
-        <v-toolbar v-bind:color="colorCode" dark>
+        <v-toolbar v-bind:color="navCode" dark>
           <h2 class="white--text" :style="{ marginLeft: '15px' }">Saber Mais</h2>
         </v-toolbar>
 
@@ -39,7 +39,8 @@ export default {
   data() {
     return {
       dialog: false,
-      colorCode: this.$store.getters.skinColor
+      colorCode: this.$store.getters.skinColor,
+      navCode:this.$store.getters.topnavColor,
     };
   }
 };

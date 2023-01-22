@@ -4,7 +4,7 @@
       app
       clipped
       v-model="drawerState"
-      v-bind:color="colorCode"
+      v-bind:color="navBarCode"
       class="navBar"
     >
     <v-list dense dar>
@@ -151,7 +151,7 @@
       <v-list-item v-on:click="help = true" prepend-icon="mdi-help" style="color: #fff;" title="Ajuda"></v-list-item>
       <v-dialog @keydown.esc="help = false" v-model="help" scrollable width="500">
             <v-card>
-              <v-toolbar v-bind:color="colorCode" dark>
+              <v-toolbar v-bind:color="navBarCode" dark>
                 <h2 class="white--text" :style="{ marginLeft: '15px' }">Ajuda</h2>
               </v-toolbar>
               <v-divider
@@ -183,7 +183,7 @@
       <v-list-item v-on:click="about = true" prepend-icon="mdi-information-outline" style="color: #fff;" title="Acerca de"></v-list-item>
       <v-dialog @keydown.esc="about = false" v-model="about" scrollable width="500">
             <v-card>
-              <v-toolbar v-bind:color="colorCode" dark>
+              <v-toolbar v-bind:color="navBarCode" dark>
                 <h2 class="white--text" :style="{ marginLeft: '15px' }">Acerca de</h2>
               </v-toolbar>
               <v-divider
@@ -210,7 +210,7 @@
       <v-list-item v-on:click="credits = true" prepend-icon="mdi-account-group" style="color: #fff;" title="Créditos"></v-list-item>
       <v-dialog @keydown.esc="credits = false"  v-model="credits" scrollable width="500">
         <v-card>
-          <v-toolbar v-bind:color="colorCode" dark>
+          <v-toolbar v-bind:color="navBarCode" dark>
             <h2 class="white--text" :style="{ marginLeft: '15px' }">Créditos</h2>
           </v-toolbar>
           <v-divider
@@ -237,7 +237,7 @@
       <v-list-item v-on:click="terms = true" prepend-icon="mdi-book-multiple" style="color: #fff;" title="Termos de utilização"></v-list-item>
       <v-dialog @keydown.esc="terms = false" v-model="terms" scrollable  width="500">
         <v-card>
-          <v-toolbar v-bind:color="colorCode" dark>
+          <v-toolbar v-bind:color="navBarCode" dark>
             <h2 class="white--text" :style="{ marginLeft: '15px' }">Termos de Utilização</h2>
           </v-toolbar>
           <v-divider
@@ -264,7 +264,7 @@
       <v-list-item v-on:click="priv = true" prepend-icon="mdi-lock" style="color: #fff;">Privacidade</v-list-item>
       <v-dialog @keydown.esc="priv = false" v-model="priv" scrollable width="500"> 
         <v-card>
-          <v-toolbar v-bind:color="colorCode" dark>
+          <v-toolbar v-bind:color="navBarCode" dark>
             <h2 class="white--text" :style="{ marginLeft: '15px' }">Privacidade</h2>
           </v-toolbar>
           <v-divider
@@ -299,7 +299,8 @@ export default {
       credits: false,
       about: false,
       help: false,
-      colorCode: this.$store.getters.skinColor
+      colorCode: this.$store.getters.skinColor,
+      navBarCode:this.$store.getters.navBarColor,
     };
   },
   methods: {
@@ -335,6 +336,10 @@ export default {
     drawerState: {
         get () { return this.$store.getters.drawerState },
         set (v) { return this.$store.commit('toggleDrawerState', v) }
+        },
+        navBarCode: {
+        get () { return this.$store.getters.navBarColor },
+        set (v) { return this.$store.commit('toggleNavBarColor', v) }
         }
   }
 };

@@ -48,17 +48,6 @@
         </v-list>
         <div class="spacer"></div>
    
-        <a>
-          <select id="selectBox" @change="getSkincode" style=" border: none; color: white;" >
-            <option value="#">Mudar Skin</option>
-            <option value="#">-----------</option>
-            <option value="#2A3F54">Original</option>       
-            <option value="#000000">Dark Mode</option>
-            <option value="#088F8F">Blue Green Mode</option>
-            <option value="#097969">Leaf Mode</option>
-            <option value="#6082B6">Ocean Mode</option>
-          </select>
-        </a>
         <v-tooltip bottom> 
             <template v-slot:activator="{ on }">
             <v-btn v-bind:title="tooltip1" text small class="white--text change-font" @click="setLocale('pt')" v-on="{on}">PT</v-btn>
@@ -155,10 +144,14 @@ export default {
         skinColor: {
         get () { return this.$store.getters.skinColor },
         set (v) { return this.$store.commit('toggleSkinColor', v) }
-        },
+        },            
         navCode: {
         get () { return this.$store.getters.topnavColor },
         set (v) { return this.$store.commit('toggleTopNavColor', v) }
+        },
+        navBarCode: {
+        get () { return this.$store.getters.navBarColor },
+        set (v) { return this.$store.commit('toggleNavBarColor', v) }
         }
     },
     methods: {

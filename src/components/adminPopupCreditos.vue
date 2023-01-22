@@ -7,7 +7,7 @@
         </v-btn>
       </template>
       <v-card>
-            <v-toolbar v-bind:color="colorCode">
+            <v-toolbar v-bind:color="navCode">
                 <h2 class="white--text" :style="{ marginLeft: '15px' }">Créditos</h2>
             </v-toolbar>
             
@@ -42,7 +42,8 @@ export default {
   data() {
     return {
       dialog: false,
-      colorCode: this.$store.getters.skinColor
+      colorCode: this.$store.getters.skinColor,
+      navCode:this.$store.getters.topnavColor,
     };
   }
 };

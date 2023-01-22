@@ -1,5 +1,5 @@
-<template>
-    <div id="configurador">
+<template >
+    <div id="configurador" >
         <appHeader :ajuda='ajuda'></appHeader>
         <navDraw></navDraw>
         <v-form ref="form" method="post" enctype="multipart/form-data">
@@ -7,17 +7,17 @@
             <v-container>
                 <v-row align-content="center" fill-height>
                     <v-col cols="6" md="5">
-                        Cor dos Botões
+                        Cor dos Botões das Tabelas
                         <color-picker v-bind:colorButtons="colorButtons" v-on:update:colorButtons="colorButtons = $event"></color-picker>
                     </v-col>
                     <v-col cols="6" md="5">
                         Cor do Header
                         <color-picker v-bind:colorHeader="colorHeader" v-on:update:colorHeader="colorHeader = $event"></color-picker>
                     </v-col>
-                    <v-col cols="6" md="5">
-                        Cor do Footer
+                    <!--<v-col cols="6" md="5">
+                        Cor do Footer do Login
                         <color-picker v-bind:colorFooter="colorFooter" v-on:update:colorFooter="colorFooter = $event"></color-picker>
-                    </v-col>
+                    </v-col>-->
                     <v-col cols="6" md="5">
                         Cor da Navbar
                         <color-picker v-bind:colorNavbar="colorNavbar" v-on:update:colorNavbar="colorNavbar = $event"></color-picker>
@@ -33,6 +33,10 @@
                 </v-row>
             </v-container>
             <v-btn class="primary" @click="submitForm">Voltar ao Original</v-btn>
+            <va-spacer class="spacer" />
+            <v-btn class="primary" style="margin-left: 20px; background-color: #B0D7E1;" @click="chillSkin">Ocean Mode</v-btn>
+            <v-btn class="primary" style="margin-left: 20px; background-color: #444C5C; color: white;"  @click="warmSkin">Warm Mode</v-btn>
+            <v-btn class="primary" style="margin-left: 20px; background-color: #F6A961; color: white;"  @click="fireSkin">Fire Mode</v-btn>
             <!-- <v-btn class="secondary" @click="resetForm">Reset</v-btn> -->
         </v-form>
         </div>
@@ -47,11 +51,17 @@ import ColorPicker from '../components/colorPicker.vue'
 export default {
     data() { 
     return {
-        colorCode: this.$store.getters.skinColor,
         colorButtons: 'white',
         colorHeader: 'white',
+        colorNavbar: 'white',
+        //colorFooter: 'white',
+        colorBackground: 'white',
+        colorCode: this.$store.getters.skinColor,
         navCode:this.$store.getters.topNavColor,
-        bttColor:this.$store.getters.bttColor
+        bttCode:this.$store.getters.bttColor,
+        navBarCode:this.$store.getters.navBarColor,
+        //footerCode:this.$store.getters.footerColor
+        bgCode:this.$store.getters.backgroundColor,
     }
     },
     components:{
@@ -61,20 +71,63 @@ export default {
     },
     watch: {
         colorButtons: function (newValue) {
-            console.log("colorButtons", newValue)
+            this.$store.commit('toggleBttColor', newValue);
+            //console.log("bttcode",this.bttCode,"aqui",newValue);
+
         },
         colorHeader: function(newValue){
             this.$store.commit('toggleTopNavColor', newValue)
-            console.log(this.navCode);
+            //console.log(this.navCode);
                 
-           
-        }
+        },
+        colorNavbar: function(newValue){
+            this.$store.commit('toggleNavBarColor', newValue)
+            //console.log(this.newValue)   
+        },
+        /*colorFooter: function (newValue) {
+            this.$store.commit('toggleFooterColor', newValue)
+            console.log(this.footerCode)
+
+        }*/
+        colorBackground: function(newValue){
+            this.$store.commit('toggleBackgroundColor', newValue)
+            //console.log(this.newValue)   
+        },
+
 
     },
     methods: {
     submitForm() {
+        this.$store.commit('toggleBttColor', '#2A3F54');
+        this.$store.commit('toggleTopNavColor', '#2A3F54')
+        this.$store.commit('toggleNavBarColor', '#2A3F54')
+        this.$store.commit('toggleBackgroundColor', '#FFFFFF')
         //atualizar a página para aplicar cor
-        location.reload()
+       // location.reload()
+    },
+    chillSkin(){
+
+        this.$store.commit('toggleBttColor', '#F1802D');
+        this.$store.commit('toggleTopNavColor', '#123740')
+        this.$store.commit('toggleNavBarColor', '#549AAB')
+        this.$store.commit('toggleBackgroundColor', '#B0D7E1')
+
+    },
+    warmSkin(){
+
+    this.$store.commit('toggleBttColor', '#E1B16A');
+    this.$store.commit('toggleTopNavColor', '#444C5C')
+    this.$store.commit('toggleNavBarColor', '#CE5A57')
+    this.$store.commit('toggleBackgroundColor', '#78A5A3')
+
+    },
+    fireSkin(){
+
+    this.$store.commit('toggleBttColor', '#583168');
+    this.$store.commit('toggleTopNavColor', '#F6A961')
+    this.$store.commit('toggleNavBarColor', '#E66A5E')
+    this.$store.commit('toggleBackgroundColor', '#BB405C')
+
     },
     resetForm() {
       this.selectedColor = ''
