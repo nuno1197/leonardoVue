@@ -14,11 +14,11 @@
   
   <script>
 export default {
+  props: ['colorButtons','colorHeader','colorFooter','colorNavbar','colorBackground','colorLetter'],
   data() {
     return {
       selectedColor: '',
       showColorPicker: false,
-      colorBtt: 'white',
     }
   },
   methods: {
@@ -28,6 +28,11 @@ export default {
     },
     cancelSelection() {
       this.showColorPicker = false
+    }
+  },
+  watch: {
+    selectedColor: function (newValue) {
+      this.$emit('update:colorButtons', newValue)
     }
   }
 }

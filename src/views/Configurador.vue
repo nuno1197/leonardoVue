@@ -8,27 +8,27 @@
                 <v-row align-content="center" fill-height>
                     <v-col cols="6" md="5">
                         Cor dos Botões
-                        <color-picker v-model="selectedColor"></color-picker>
+                        <color-picker v-bind:colorButtons="colorButtons" v-on:update:colorButtons="colorButtons = $event"></color-picker>
                     </v-col>
                     <v-col cols="6" md="5">
                         Cor do Header
-                        <color-picker v-model="selectedColor"></color-picker>
+                        <color-picker v-bind:colorHeader="colorHeader" v-on:update:colorHeader="colorHeader = $event"></color-picker>
                     </v-col>
                     <v-col cols="6" md="5">
                         Cor do Footer
-                        <color-picker v-model="selectedColor"></color-picker>
+                        <color-picker v-bind:colorFooter="colorFooter" v-on:update:colorFooter="colorFooter = $event"></color-picker>
                     </v-col>
                     <v-col cols="6" md="5">
                         Cor da Navbar
-                        <color-picker v-model="selectedColor"></color-picker>
+                        <color-picker v-bind:colorNavbar="colorNavbar" v-on:update:colorNavbar="colorNavbar = $event"></color-picker>
                     </v-col>
                     <v-col cols="6" md="5">
                         Cor de Fundo
-                        <color-picker v-model="selectedColor"></color-picker>
+                        <color-picker v-bind:colorBackground="colorBackground" v-on:update:colorBackground="colorBackground = $event"></color-picker>
                     </v-col>
                     <v-col cols="6" md="5">
                         Cor da Letra
-                        <color-picker v-model="selectedColor"></color-picker>
+                        <color-picker v-bind:colorLetter="colorLetter" v-on:update:colorLetter="colorLetter = $event"></color-picker>
                     </v-col>
                 </v-row>
             </v-container>
@@ -43,17 +43,24 @@ import Header from '../components/header.vue'
 import NavDraw from '../components/navDraw.vue'
 import ColorPicker from '../components/colorPicker.vue'
 
+
 export default {
     data() { 
     return {
-        colorCode: this.$store.getters.skinColor
+        colorCode: this.$store.getters.skinColor,
+        colorButtons: 'white',
     }
     },
     components:{
             'appHeader': Header,
             'navDraw':NavDraw,
             'colorPicker': ColorPicker
-    }, 
+    },
+    watch: {
+        colorButtons: function (newValue) {
+            console.log("colorButtons", newValue)
+        }
+    },
     methods: {
     submitForm() {
     },
