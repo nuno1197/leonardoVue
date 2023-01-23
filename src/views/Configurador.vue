@@ -1,5 +1,6 @@
-<template >
-    <div id="configurador" >
+<template>
+    <body :style="{ 'background-color': bgCode }">
+    <div id="configurador">
         <appHeader :ajuda='ajuda'></appHeader>
         <navDraw></navDraw>
         <v-form ref="form" method="post" enctype="multipart/form-data">
@@ -40,6 +41,7 @@
             <!-- <v-btn class="secondary" @click="resetForm">Reset</v-btn> -->
         </v-form>
         </div>
+    </body>
   </template>
 
 <script>
@@ -93,6 +95,14 @@ export default {
             this.$store.commit('toggleBackgroundColor', newValue)
             //console.log(this.newValue)   
         },
+
+
+    },
+    computed:{
+        bgCode: {
+        get () { return this.$store.getters.backgroundColor },
+        set (v) { return this.$store.commit('toggleBackgroundColor', v) }
+        }
 
 
     },
@@ -159,4 +169,7 @@ export default {
     color-picker {
         background-color: "colorCode";
     }
+.v-application__wrap {
+    background-color: v-bind(bgCode);
+  }
 </style>

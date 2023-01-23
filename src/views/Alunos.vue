@@ -1,8 +1,8 @@
 <template>
-    <div id="alunos">
+    <div id="alunos" :style="{ 'background-color': bgCode }">
         <appHeader :ajuda='ajuda'></appHeader>
         <navDraw></navDraw>
-        <v-toolbar style="padding-top:100px;background-color:white">
+        <v-toolbar :style="{ 'background-color': bgCode }" style="padding-top:100px;">
             <v-toolbar-title>Alunos</v-toolbar-title>
             <v-divider
                 class="mx-4"
@@ -61,6 +61,7 @@ export default {
         return{
             colorCode: this.$store.getters.skinColor,
             bttCode:this.$store.getters.bttColor,
+            bgCode:this.$store.getters.backgroundColor,
             search:'',
             dialog: false,
             ajuda:'alunos',
