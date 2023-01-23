@@ -62,6 +62,7 @@ export default {
             colorCode: this.$store.getters.skinColor,
             bttCode:this.$store.getters.bttColor,
             bgCode:this.$store.getters.backgroundColor,
+            navCode:this.$store.getters.topNavColor,
             search:'',
             dialog: false,
             ajuda:'users',
@@ -141,7 +142,7 @@ const items: Item[] = [
     }
    .customize-table{
     --easy-table-border: 0px solid #445269;
-    --easy-table-header-background-color: v-bind(bgCode);
+    --easy-table-header-background-color: v-bind(navCode);
     --easy-table-header-font-color: #fff;
     --easy-table-header-height: 50px;
     --easy-table-header-font-size: 15px;
