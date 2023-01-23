@@ -62,7 +62,7 @@ export default {
             colorCode: this.$store.getters.skinColor,
             bttCode:this.$store.getters.bttColor,
             bgCode:this.$store.getters.backgroundColor,
-            navCode:this.$store.getters.topNavColor,
+            navCode:this.$store.getters.topnavColor,
             search:'',
             dialog: false,
             ajuda:'users',
