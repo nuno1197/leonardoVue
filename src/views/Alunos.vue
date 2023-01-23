@@ -29,7 +29,7 @@
         </v-toolbar>
         <v-row dense align-self="center" justify="center">
             <v-col cols="12" sm="12">
-                <EasyDataTable table-class-name="customize-table" header-text-direction="center" body-text-direction="center"
+                <EasyDataTable :style="{ 'background-color': bgCode }" table-class-name="customize-table" header-text-direction="center" body-text-direction="center"
                     :headers="headers"
                     :items="items"
                     alternating
