@@ -58,12 +58,14 @@ export default {
         colorNavbar: 'white',
         //colorFooter: 'white',
         colorBackground: 'white',
+        colorLetter:'white',
         colorCode: this.$store.getters.skinColor,
-        navCode:this.$store.getters.topNavColor,
+        navCode:this.$store.getters.topnavColor,
         bttCode:this.$store.getters.bttColor,
         navBarCode:this.$store.getters.navBarColor,
         //footerCode:this.$store.getters.footerColor
         bgCode:this.$store.getters.backgroundColor,
+        letterCode:this.$store.getters.letterColor,
     }
     },
     components:{
@@ -95,8 +97,12 @@ export default {
             this.$store.commit('toggleBackgroundColor', newValue)
             //console.log(this.newValue)   
         },
-
-
+        colorLetter: function(newValue){
+            this.$store.commit('toggleLetterColor', newValue)
+            
+            
+            //console.log(this.newValue)   
+        },
     },
     computed:{
         bgCode: {
@@ -112,6 +118,7 @@ export default {
         this.$store.commit('toggleTopNavColor', '#2A3F54')
         this.$store.commit('toggleNavBarColor', '#2A3F54')
         this.$store.commit('toggleBackgroundColor', '#FFFFFF')
+        this.$store.commit('toggleLetterColor', '#000000')
         //atualizar a página para aplicar cor
        // location.reload()
     },
@@ -121,6 +128,7 @@ export default {
         this.$store.commit('toggleTopNavColor', '#123740')
         this.$store.commit('toggleNavBarColor', '#549AAB')
         this.$store.commit('toggleBackgroundColor', '#B0D7E1')
+        this.$store.commit('toggleLetterColor', '#F1802D')
 
     },
     warmSkin(){
@@ -129,6 +137,7 @@ export default {
     this.$store.commit('toggleTopNavColor', '#444C5C')
     this.$store.commit('toggleNavBarColor', '#CE5A57')
     this.$store.commit('toggleBackgroundColor', '#78A5A3')
+    this.$store.commit('toggleLetterColor', '#E1B16A')
 
     },
     fireSkin(){
@@ -137,12 +146,13 @@ export default {
     this.$store.commit('toggleTopNavColor', '#F6A961')
     this.$store.commit('toggleNavBarColor', '#E66A5E')
     this.$store.commit('toggleBackgroundColor', '#BB405C')
+    this.$store.commit('toggleLetterColor', '#583168')
 
     },
     resetForm() {
       this.selectedColor = ''
     }
-  }
+  },
 }
 </script>
 

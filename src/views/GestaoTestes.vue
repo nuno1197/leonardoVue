@@ -1,9 +1,9 @@
 <template>
-    <div id="gestaotestes">
+    <div id="gestaotestes" :style="{ 'background-color': bgCode }">
         <appHeader :ajuda='ajuda'></appHeader>
         <navDraw></navDraw>
-        <v-toolbar style="padding-top:100px;background-color:white">
-            <v-toolbar-title>Gestão Testes</v-toolbar-title>
+        <v-toolbar :style="{ 'background-color': bgCode }" style="padding-top:100px;">
+            <v-toolbar-title :style="{ 'color': letterCode }" style="font-weight: bold;">Gestão Testes</v-toolbar-title>
             <v-divider
                 class="mx-4"
                 inset
@@ -17,6 +17,7 @@
                 variant="underlined"
                 append-inner-icon="mdi-magnify"
                 hide-details
+                :style="{ 'color': letterCode }"
             ></v-text-field>
             <v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">    
@@ -69,6 +70,9 @@ export default {
         return{
             colorCode: this.$store.getters.skinColor,
             bttCode:this.$store.getters.bttColor,
+            navCode:this.$store.getters.topnavColor,
+            bgCode:this.$store.getters.backgroundColor,
+            letterCode:this.$store.getters.letterColor,
             search:'',
             dialog: false,
             ajuda:'gestaoquestoes',
@@ -144,7 +148,7 @@ const items: Item[] = [
     }
    .customize-table{
     --easy-table-border: 0px solid #445269;
-    --easy-table-header-background-color: v-bind(colorCode);
+    --easy-table-header-background-color: v-bind(navCode);
     --easy-table-header-font-color: #fff;
     --easy-table-header-height: 50px;
     --easy-table-header-font-size: 15px;

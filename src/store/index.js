@@ -40,6 +40,7 @@ export default createStore({
       navBarColor:"#2A3F54",
       footerColor:"#2A3F54",
       backgroundColor:"#FFFFFF",
+      letterColor:"#000000",
     },   
     plugins: [createPersistedState()],   
     mutations: {     
@@ -92,6 +93,9 @@ export default createStore({
       },
       toggleBackgroundColor(state, data) {
         state.backgroundColor = data
+      },
+      toggleLetterColor(state, data) {
+        state.letterColor = data
       },
       set_user_domains(state, domains) {
           state.user_domains = domains
@@ -210,7 +214,8 @@ export default createStore({
       bttColor: (state) => state.bttColor,
       navBarColor: (state) => state.navBarColor,
       footerColor: (state) => state.footerColor,
-      backgroundColor: (state) => state.backgroundColor
+      backgroundColor: (state) => state.backgroundColor,
+      letterColor: (state) => state.letterColor
     },
     actions: {},   
     modules: {},

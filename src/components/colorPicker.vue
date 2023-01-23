@@ -34,6 +34,7 @@ export default {
       this.$emit('update:colorNavbar', newValue)
       this.$emit('update:colorFooter', newValue)
       this.$emit('update:colorBackground', newValue)
+      this.$emit('update:colorLetter', newValue)
     }
   },
   computed: {

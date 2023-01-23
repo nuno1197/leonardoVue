@@ -1,10 +1,10 @@
 <template>
-    <div id="professores">
+    <div id="professores" :style="{ 'background-color': bgCode }">
         <appHeader :ajuda='ajuda'></appHeader>
         <navDraw></navDraw>
-        <v-toolbar style="padding-top:100px;background-color:white">
+        <v-toolbar :style="{ 'background-color': bgCode }" style="padding-top:100px;">
             <div style="flex: 1;padding-left: 12px;">
-                <v-toolbar-title>Professores</v-toolbar-title>
+                <v-toolbar-title :style="{ 'color': letterCode }" style="font-weight: bold;">Professores</v-toolbar-title>
             </div>
             <v-divider
                 class="mx-8"
@@ -19,6 +19,7 @@
                 variant="underlined"
                 append-inner-icon="mdi-magnify"
                 hide-details
+                :style="{ 'color': letterCode }"
             ></v-text-field>
             <v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">    
@@ -63,6 +64,9 @@ export default {
         return{
             colorCode: this.$store.getters.skinColor,
             bttCode:this.$store.getters.bttColor,
+            navCode:this.$store.getters.topnavColor,
+            bgCode:this.$store.getters.backgroundColor,
+            letterCode:this.$store.getters.letterColor,
             search:'',
             dialog: false,
             ajuda:'professores',
@@ -135,7 +139,7 @@ const items: Item[] = [
     }
    .customize-table{
     --easy-table-border: 0px solid #445269;
-    --easy-table-header-background-color: v-bind(colorCode);
+    --easy-table-header-background-color: v-bind(navCode);
     --easy-table-header-font-color: #fff;
     --easy-table-header-height: 50px;
     --easy-table-header-font-size: 15px;

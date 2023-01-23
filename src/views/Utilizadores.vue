@@ -3,7 +3,7 @@
         <appHeader :ajuda='ajuda'></appHeader>
         <navDraw></navDraw>
         <v-toolbar :style="{ 'background-color': bgCode }" style="padding-top:100px;">
-            <v-toolbar-title>Utilizadores</v-toolbar-title>
+            <v-toolbar-title :style="{ 'color': letterCode }" style="font-weight: bold;">Utilizadores</v-toolbar-title>
             <v-divider
                 class="mx-4"
                 inset
@@ -17,6 +17,7 @@
                 variant="underlined"
                 append-inner-icon="mdi-magnify"
                 hide-details
+                :style="{ 'color': letterCode }"
             ></v-text-field>
             <v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">    
@@ -63,6 +64,7 @@ export default {
             bttCode:this.$store.getters.bttColor,
             bgCode:this.$store.getters.backgroundColor,
             navCode:this.$store.getters.topnavColor,
+            letterCode:this.$store.getters.letterColor,
             search:'',
             dialog: false,
             ajuda:'users',
