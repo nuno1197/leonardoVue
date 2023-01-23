@@ -141,7 +141,7 @@ const items: Item[] = [
     }
    .customize-table{
     --easy-table-border: 0px solid #445269;
-    --easy-table-header-background-color: v-bind(colorCode);
+    --easy-table-header-background-color: v-bind(bgCode);
     --easy-table-header-font-color: #fff;
     --easy-table-header-height: 50px;
     --easy-table-header-font-size: 15px;
