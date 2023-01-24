@@ -145,7 +145,71 @@
           <v-list-item v-bind="props" prepend-icon="mdi-cog" style="color: #fff;" title="Definições"></v-list-item>
         </template>
         <v-list-item v-bind="props" style="color: #fff;" title="Configuração geral"></v-list-item>
-        <v-list-item v-on:click="goToConfigurador" v-bind="props" style="color: #fff;" title="Configuração de skin"></v-list-item>
+        <v-list-item v-on:click="configurator = true" v-bind="props" style="color: #fff;" title="Configuração de skin"></v-list-item>
+          <v-dialog @keydown.esc="configurator = false"  v-model="configurator"  width="800">
+            <v-card>
+                <v-toolbar v-bind:color="navBarCode" dark>
+                <h2 class="white--text" :style="{ marginLeft: '15px' }">Configurador de skin</h2>
+                </v-toolbar>
+                <v-divider
+                class="mx-4"
+                horizontal
+            ></v-divider>
+                <v-form ref="form" method="post" enctype="multipart/form-data">
+                    <v-container>
+                        <v-row align-content="center" fill-height>
+                            <v-col cols="6" md="5">
+                                Cor dos Botões das Tabelas
+                                <color-picker v-bind:colorButtons="colorButtons" v-on:update:colorButtons="colorButtons = $event"></color-picker>
+                            </v-col>
+                            <v-col cols="6" md="5">
+                                Cor do Header
+                                <color-picker v-bind:colorHeader="colorHeader" v-on:update:colorHeader="colorHeader = $event"></color-picker>
+                            </v-col>
+                            <v-col cols="6" md="5">
+                                Cor da Navbar
+                                <color-picker v-bind:colorNavbar="colorNavbar" v-on:update:colorNavbar="colorNavbar = $event"></color-picker>
+                            </v-col>
+                            <v-col cols="6" md="5">
+                                Cor de Fundo
+                                <color-picker v-bind:colorBackground="colorBackground" v-on:update:colorBackground="colorBackground = $event"></color-picker>
+                            </v-col>
+                            <v-col cols="6" md="5">
+                                Cor da Letra
+                                <color-picker v-bind:colorLetter="colorLetter" v-on:update:colorLetter="colorLetter = $event"></color-picker>
+                            </v-col>
+                            
+                        </v-row>
+                        <v-row>
+                          <v-col cols="1" md="8">
+                              <v-icon class="primary" @click="submitForm">mdi-undo</v-icon>
+                          </v-col>
+                          <v-col cols="1" md="1">
+                            <v-icon class="primary" @click="chillSkin">mdi-waves</v-icon>
+                          </v-col>
+                          <v-col cols="1" md="1">
+                            <v-icon class="primary" @click="warmSkin">mdi-heat-wave</v-icon>
+                          </v-col>
+                          <v-col cols="1" md="1">
+                            <v-icon class="primary" @click="fireSkin">mdi-fire</v-icon>
+                          </v-col>
+                        </v-row>
+                        
+                    </v-container>
+                </v-form>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-tooltip bottom> 
+                      <template v-slot:activator="{ on }">
+                          <v-btn depressed color="lightgray" @click="configurator=false" v-on="{on}">
+                          <v-icon size="30">mdi-exit-to-app</v-icon>
+                          </v-btn>
+                      </template>
+                      <span>Voltar</span>
+                  </v-tooltip>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
       </v-list-group>
 
       <v-list-item v-on:click="help = true" prepend-icon="mdi-help" style="color: #fff;" title="Ajuda"></v-list-item>
@@ -291,56 +355,149 @@
 </template>
 
 <script>
+import ColorPicker from '../components/colorPicker.vue'
+
 export default {
-  data() {
-    return {
-      priv: false,
-      terms: false,
-      credits: false,
-      about: false,
-      help: false,
-      colorCode: this.$store.getters.skinColor,
-      navBarCode:this.$store.getters.navBarColor,
-    };
-  },
-  methods: {
-    goToHome() {
-      this.$router.push({ path: '../home' });
+    data() {
+        return {
+            priv: false,
+            terms: false,
+            credits: false,
+            about: false,
+            help: false,
+            configurator: false,
+            colorButtons: 'white',
+            colorHeader: 'white',
+            colorNavbar: 'white',
+            //colorFooter: 'white',
+            colorBackground: 'white',
+            colorLetter:'white',
+            colorCode: this.$store.getters.skinColor,
+            navCode:this.$store.getters.topnavColor,
+            bttCode:this.$store.getters.bttColor,
+            navBarCode:this.$store.getters.navBarColor,
+            //footerCode:this.$store.getters.footerColor
+            bgCode:this.$store.getters.backgroundColor,
+            letterCode:this.$store.getters.letterColor,
+        };
     },
-    goToResponsaveis(){
-      this.$router.push({ path: '../responsaveis' });
+    methods: {
+        goToHome() {
+            this.$router.push({ path: "../home" });
+        },
+        goToResponsaveis() {
+            this.$router.push({ path: "../responsaveis" });
+        },
+        goToAlunos() {
+            this.$router.push({ path: "../alunos" });
+        },
+        goToProfessores() {
+            this.$router.push({ path: "../professores" });
+        },
+        goToDominios() {
+            this.$router.push({ path: "../dominios" });
+        },
+        goToQuestoes() {
+            this.$router.push({ path: "../questoes" });
+        },
+        goToGestaoTestes() {
+            this.$router.push({ path: "../gestaotestes" });
+        },
+        goToGestaoUsers() {
+            this.$router.push({ path: "../users" });
+        },
+        goToConfigurador() {
+            this.$router.push({ path: "../configurador" });
+        },
     },
-    goToAlunos(){
-      this.$router.push({ path: '../alunos' });
-    },
-    goToProfessores(){
-      this.$router.push({ path: '../professores' });
-    },
-    goToDominios(){
-      this.$router.push({ path: '../dominios' });
-    },
-    goToQuestoes(){
-      this.$router.push({ path: '../questoes' });
-    },
-    goToGestaoTestes(){
-      this.$router.push({ path: '../gestaotestes' });
-    },
-    goToGestaoUsers(){
-      this.$router.push({ path: '../users' });
-    },
-    goToConfigurador(){
-      this.$router.push({ path: '../configurador' });
-    },
-  },
-  computed: {
-    drawerState: {
-        get () { return this.$store.getters.drawerState },
-        set (v) { return this.$store.commit('toggleDrawerState', v) }
+    computed: {
+        drawerState: {
+            get() { return this.$store.getters.drawerState; },
+            set(v) { return this.$store.commit("toggleDrawerState", v); }
         },
         navBarCode: {
-        get () { return this.$store.getters.navBarColor },
-        set (v) { return this.$store.commit('toggleNavBarColor', v) }
+            get() { return this.$store.getters.navBarColor; },
+            set(v) { return this.$store.commit("toggleNavBarColor", v); }
+        },
+        bgCode: {
+            get () { return this.$store.getters.backgroundColor },
+            set (v) { return this.$store.commit('toggleBackgroundColor', v) }
         }
+    },
+    components:{
+      'colorPicker': ColorPicker
+    },
+    watch: {
+        colorButtons: function (newValue) {
+            this.$store.commit('toggleBttColor', newValue);
+            //console.log("bttcode",this.bttCode,"aqui",newValue);
+
+        },
+        colorHeader: function(newValue){
+            this.$store.commit('toggleTopNavColor', newValue)
+            //console.log(this.navCode);
+                
+        },
+        colorNavbar: function(newValue){
+            this.$store.commit('toggleNavBarColor', newValue)
+            //console.log(this.newValue)   
+        },
+        /*colorFooter: function (newValue) {
+            this.$store.commit('toggleFooterColor', newValue)
+            console.log(this.footerCode)
+
+        }*/
+        colorBackground: function(newValue){
+            this.$store.commit('toggleBackgroundColor', newValue)
+            //console.log(this.newValue)   
+        },
+        colorLetter: function(newValue){
+            this.$store.commit('toggleLetterColor', newValue)
+            
+            
+            //console.log(this.newValue)   
+        },
+    },
+    methods: {
+    submitForm() {
+        this.$store.commit('toggleBttColor', '#2A3F54');
+        this.$store.commit('toggleTopNavColor', '#2A3F54')
+        this.$store.commit('toggleNavBarColor', '#2A3F54')
+        this.$store.commit('toggleBackgroundColor', '#FFFFFF')
+        this.$store.commit('toggleLetterColor', '#000000')
+        //atualizar a página para aplicar cor
+       // location.reload()
+    },
+    chillSkin(){
+
+        this.$store.commit('toggleBttColor', '#F1802D');
+        this.$store.commit('toggleTopNavColor', '#123740')
+        this.$store.commit('toggleNavBarColor', '#549AAB')
+        this.$store.commit('toggleBackgroundColor', '#B0D7E1')
+        this.$store.commit('toggleLetterColor', '#F1802D')
+
+    },
+    warmSkin(){
+
+    this.$store.commit('toggleBttColor', '#E1B16A');
+    this.$store.commit('toggleTopNavColor', '#444C5C')
+    this.$store.commit('toggleNavBarColor', '#CE5A57')
+    this.$store.commit('toggleBackgroundColor', '#78A5A3')
+    this.$store.commit('toggleLetterColor', '#E1B16A')
+
+    },
+    fireSkin(){
+
+    this.$store.commit('toggleBttColor', '#583168');
+    this.$store.commit('toggleTopNavColor', '#F6A961')
+    this.$store.commit('toggleNavBarColor', '#E66A5E')
+    this.$store.commit('toggleBackgroundColor', '#BB405C')
+    this.$store.commit('toggleLetterColor', '#583168')
+
+    },
+    resetForm() {
+      this.selectedColor = ''
+    }
   }
 };
 </script>

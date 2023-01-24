@@ -40,7 +40,7 @@ export default createStore({
       navBarColor:"#2A3F54",
       footerColor:"#2A3F54",
       backgroundColor:"#FFFFFF",
-      letterColor:"#000000",
+      letterColor:"#000000"
     },   
     plugins: [createPersistedState()],   
     mutations: {     
