@@ -182,16 +182,24 @@
                         </v-row>
                         <v-row>
                           <v-col cols="1" md="8">
-                              <v-icon class="primary" @click="submitForm">mdi-undo</v-icon>
+                            <v-btn @click="submitForm">
+                              <v-icon class="primary" >mdi-undo</v-icon>
+                            </v-btn>
                           </v-col>
                           <v-col cols="1" md="1">
-                            <v-icon class="primary" @click="chillSkin">mdi-waves</v-icon>
+                            <v-btn  @click="chillSkin">
+                              <v-icon class="primary">mdi-waves</v-icon>
+                            </v-btn>
                           </v-col>
                           <v-col cols="1" md="1">
-                            <v-icon class="primary" @click="warmSkin">mdi-heat-wave</v-icon>
+                            <v-btn  @click="warmSkin">
+                              <v-icon class="primary">mdi-heat-wave</v-icon>
+                            </v-btn>
                           </v-col>
                           <v-col cols="1" md="1">
-                            <v-icon class="primary" @click="fireSkin">mdi-fire</v-icon>
+                            <v-btn @click="fireSkin">
+                              <v-icon class="primary" >mdi-fire</v-icon>
+                            </v-btn>
                           </v-col>
                         </v-row>
                         

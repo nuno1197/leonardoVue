@@ -47,7 +47,14 @@
             </v-dialog>
         </v-list>
         <div class="spacer"></div>
-   
+
+        <div style="float:right; color: white;">
+            <v-col cols="1" md="8">
+                <v-btn  @click="originalSkin">
+                    <v-icon class="primary">mdi-undo</v-icon>
+                </v-btn>
+            </v-col>
+        </div>
         <v-tooltip bottom> 
             <template v-slot:activator="{ on }">
             <v-btn v-bind:title="tooltip1" text small class="white--text change-font" @click="setLocale('pt')" v-on="{on}">PT</v-btn>
@@ -173,7 +180,16 @@ export default {
           //atualizar a página para aplicar cor
           location.reload()
         
-        }
+        },
+        originalSkin() {
+        this.$store.commit('toggleBttColor', '#2A3F54');
+        this.$store.commit('toggleTopNavColor', '#2A3F54')
+        this.$store.commit('toggleNavBarColor', '#2A3F54')
+        this.$store.commit('toggleBackgroundColor', '#FFFFFF')
+        this.$store.commit('toggleLetterColor', '#000000')
+        //atualizar a página para aplicar cor
+       // location.reload()
+    },
     },
 };
 </script>

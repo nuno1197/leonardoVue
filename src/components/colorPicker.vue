@@ -1,5 +1,7 @@
 <template>
-      <v-icon @click="showColorPicker = !showColorPicker" class="mr-2">mdi-palette</v-icon>
+    <v-btn id="iconbtt" @click="showColorPicker = !showColorPicker" style="margin-left:10px">
+      <v-icon  class="mr-2">mdi-palette</v-icon>
+    </v-btn>
       <span v-if="selectedColor" :style="{backgroundColor: selectedColor}" class="color-circle"></span>
       <v-menu v-model="showColorPicker" :close-on-content-click="false" class="justify-center align-center">
         <v-color-picker v-model="selectedColor"></v-color-picker>
@@ -44,3 +46,12 @@ export default {
   }
 }
 </script>
+
+<style>
+#iconbtt{
+    justify-content: center;
+    align-items: center;
+ 
+}
+
+</style>
