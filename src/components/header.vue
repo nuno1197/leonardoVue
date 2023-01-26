@@ -188,7 +188,7 @@ export default {
         this.$store.commit('toggleBackgroundColor', '#FFFFFF')
         this.$store.commit('toggleLetterColor', '#000000')
         //atualizar a página para aplicar cor
-       // location.reload()
+        location.reload()
     },
     },
 };
