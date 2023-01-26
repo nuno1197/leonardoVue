@@ -389,35 +389,6 @@ export default {
             letterCode:this.$store.getters.letterColor,
         };
     },
-    methods: {
-        goToHome() {
-            this.$router.push({ path: "../home" });
-        },
-        goToResponsaveis() {
-            this.$router.push({ path: "../responsaveis" });
-        },
-        goToAlunos() {
-            this.$router.push({ path: "../alunos" });
-        },
-        goToProfessores() {
-            this.$router.push({ path: "../professores" });
-        },
-        goToDominios() {
-            this.$router.push({ path: "../dominios" });
-        },
-        goToQuestoes() {
-            this.$router.push({ path: "../questoes" });
-        },
-        goToGestaoTestes() {
-            this.$router.push({ path: "../gestaotestes" });
-        },
-        goToGestaoUsers() {
-            this.$router.push({ path: "../users" });
-        },
-        goToConfigurador() {
-            this.$router.push({ path: "../configurador" });
-        },
-    },
     computed: {
         drawerState: {
             get() { return this.$store.getters.drawerState; },
@@ -467,6 +438,33 @@ export default {
         },
     },
     methods: {
+      goToHome() {
+            this.$router.push({ path: "../home" });
+        },
+        goToResponsaveis() {
+            this.$router.push({ path: "../responsaveis" });
+        },
+        goToAlunos() {
+            this.$router.push({ path: "../alunos" });
+        },
+        goToProfessores() {
+            this.$router.push({ path: "../professores" });
+        },
+        goToDominios() {
+            this.$router.push({ path: "../dominios" });
+        },
+        goToQuestoes() {
+            this.$router.push({ path: "../questoes" });
+        },
+        goToGestaoTestes() {
+            this.$router.push({ path: "../gestaotestes" });
+        },
+        goToGestaoUsers() {
+            this.$router.push({ path: "../users" });
+        },
+        goToConfigurador() {
+            this.$router.push({ path: "../configurador" });
+        },
     submitForm() {
         this.$store.commit('toggleBttColor', '#2A3F54');
         this.$store.commit('toggleTopNavColor', '#2A3F54')
