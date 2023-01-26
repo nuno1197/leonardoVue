@@ -187,19 +187,31 @@
                             </v-btn>
                           </v-col>
                           <v-col cols="1" md="1">
-                            <v-btn  @click="chillSkin">
-                              <v-icon class="primary">mdi-waves</v-icon>
-                            </v-btn>
+                            <v-tooltip bottom>
+                              <template v-slot:activator="{ on }">
+                                <v-btn v-bind:title="tooltip1" @click="chillSkin">
+                                  <v-icon class="primary">mdi-waves</v-icon>
+                                </v-btn>
+                              </template>
+                            </v-tooltip>
                           </v-col>
                           <v-col cols="1" md="1">
-                            <v-btn  @click="warmSkin">
-                              <v-icon class="primary">mdi-heat-wave</v-icon>
-                            </v-btn>
+                            <v-tooltip bottom>
+                              <template v-slot:activator="{ on }">
+                                <v-btn v-bind:title="tooltip2" @click="warmSkin">
+                                  <v-icon class="primary">mdi-heat-wave</v-icon>
+                                </v-btn>
+                              </template>
+                            </v-tooltip>
                           </v-col>
                           <v-col cols="1" md="1">
-                            <v-btn @click="fireSkin">
-                              <v-icon class="primary" >mdi-fire</v-icon>
-                            </v-btn>
+                            <v-tooltip bottom>
+                              <template v-slot:activator="{ on }">
+                                <v-btn v-bind:title="tooltip3" @click="fireSkin">
+                                  <v-icon class="primary" >mdi-fire</v-icon>
+                                </v-btn>
+                              </template>
+                            </v-tooltip>
                           </v-col>
                         </v-row>
                         
@@ -374,6 +386,9 @@ export default {
             about: false,
             help: false,
             configurator: false,
+            tooltip1: 'Chill Skin',
+            tooltip2: 'Warm Skin',
+            tooltip3: 'Fire Skin',
             colorButtons: 'white',
             colorHeader: 'white',
             colorNavbar: 'white',

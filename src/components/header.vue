@@ -50,9 +50,13 @@
 
         <div style="float:right; color: white;">
             <v-col cols="1" md="8">
-                <v-btn  @click="originalSkin">
-                    <v-icon class="primary">mdi-undo</v-icon>
-                </v-btn>
+                <v-tooltip bottom>
+                    <template v-slot:activator="{ on }">
+                        <v-btn v-bind:title="tooltip5" @click="originalSkin">
+                            <v-icon class="primary">mdi-undo</v-icon>
+                        </v-btn>
+                    </template>
+                </v-tooltip>
             </v-col>
         </div>
         <v-tooltip bottom> 
@@ -125,6 +129,7 @@ export default {
             tooltip2: 'Idioma Español',
             tooltip3: 'English Language',
             tooltip4: 'Opções de perfil de Utilização',
+            tooltip5: 'Skin Default',
             showMenu: false,
             colorCode: this.$store.getters.skinColor,
             navCode:this.$store.getters.topNavColor,
