@@ -403,7 +403,7 @@ export default {
             this.$router.push({ path: "../professores" });
         },
         goToDominios() {
-            this.$router.push({ path: "../dominios" });Configurador
+            this.$router.push({ path: "../dominios" });
         },
         goToQuestoes() {
             this.$router.push({ path: "../questoes" });

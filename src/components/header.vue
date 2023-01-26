@@ -36,7 +36,7 @@
 
                     <v-tooltip bottom>
                         <template #activator="{ on }">
-                        <v-btn @click="dialog=false" v-bind="on">
+                        <v-btn @click="about=false" v-bind="on">
                             <v-icon size="30">mdi-exit-to-app</v-icon>
                         </v-btn>
                         </template>
