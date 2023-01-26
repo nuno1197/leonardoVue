@@ -148,7 +148,7 @@
         <v-list-item v-on:click="configurator = true" v-bind="props" style="color: #fff;" title="Configuração de skin"></v-list-item>
           <v-dialog @keydown.esc="configurator = false"  v-model="configurator"  width="800">
             <v-card>
-                <v-toolbar v-bind:color="navBarCode" dark>
+                <v-toolbar v-bind:color="navCode" dark>
                 <h2 class="white--text" :style="{ marginLeft: '15px' }">Configurador de skin</h2>
                 </v-toolbar>
                 <v-divider
@@ -223,7 +223,7 @@
       <v-list-item v-on:click="help = true" prepend-icon="mdi-help" style="color: #fff;" title="Ajuda"></v-list-item>
       <v-dialog @keydown.esc="help = false" v-model="help" scrollable width="500">
             <v-card>
-              <v-toolbar v-bind:color="navBarCode" dark>
+              <v-toolbar v-bind:color="navCode" dark>
                 <h2 class="white--text" :style="{ marginLeft: '15px' }">Ajuda</h2>
               </v-toolbar>
               <v-divider
@@ -255,7 +255,7 @@
       <v-list-item v-on:click="about = true" prepend-icon="mdi-information-outline" style="color: #fff;" title="Acerca de"></v-list-item>
       <v-dialog @keydown.esc="about = false" v-model="about" scrollable width="500">
             <v-card>
-              <v-toolbar v-bind:color="navBarCode" dark>
+              <v-toolbar v-bind:color="navCode" dark>
                 <h2 class="white--text" :style="{ marginLeft: '15px' }">Acerca de</h2>
               </v-toolbar>
               <v-divider
@@ -282,7 +282,7 @@
       <v-list-item v-on:click="credits = true" prepend-icon="mdi-account-group" style="color: #fff;" title="Créditos"></v-list-item>
       <v-dialog @keydown.esc="credits = false"  v-model="credits" scrollable width="500">
         <v-card>
-          <v-toolbar v-bind:color="navBarCode" dark>
+          <v-toolbar v-bind:color="navCode" dark>
             <h2 class="white--text" :style="{ marginLeft: '15px' }">Créditos</h2>
           </v-toolbar>
           <v-divider
@@ -309,7 +309,7 @@
       <v-list-item v-on:click="terms = true" prepend-icon="mdi-book-multiple" style="color: #fff;" title="Termos de utilização"></v-list-item>
       <v-dialog @keydown.esc="terms = false" v-model="terms" scrollable  width="500">
         <v-card>
-          <v-toolbar v-bind:color="navBarCode" dark>
+          <v-toolbar v-bind:color="navCode" dark>
             <h2 class="white--text" :style="{ marginLeft: '15px' }">Termos de Utilização</h2>
           </v-toolbar>
           <v-divider
@@ -336,7 +336,7 @@
       <v-list-item v-on:click="priv = true" prepend-icon="mdi-lock" style="color: #fff;">Privacidade</v-list-item>
       <v-dialog @keydown.esc="priv = false" v-model="priv" scrollable width="500"> 
         <v-card>
-          <v-toolbar v-bind:color="navBarCode" dark>
+          <v-toolbar v-bind:color="navCode" dark>
             <h2 class="white--text" :style="{ marginLeft: '15px' }">Privacidade</h2>
           </v-toolbar>
           <v-divider
