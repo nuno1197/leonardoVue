@@ -209,7 +209,7 @@
                   <v-spacer></v-spacer>
                   <v-tooltip bottom> 
                       <template v-slot:activator="{ on }">
-                          <v-btn depressed color="lightgray" @click="configurator=false" v-on="{on}">
+                          <v-btn depressed color="lightgray" @click="applyReload" v-on="{on}">
                           <v-icon size="30">mdi-exit-to-app</v-icon>
                           </v-btn>
                       </template>
@@ -403,7 +403,7 @@ export default {
             this.$router.push({ path: "../professores" });
         },
         goToDominios() {
-            this.$router.push({ path: "../dominios" });
+            this.$router.push({ path: "../dominios" });Configurador
         },
         goToQuestoes() {
             this.$router.push({ path: "../questoes" });
@@ -505,6 +505,12 @@ export default {
     },
     resetForm() {
       this.selectedColor = ''
+    },
+    applyReload(){
+      this.configurator=false;
+      location.reload();
+      
+
     }
   }
 };

@@ -107,6 +107,16 @@ export default {
             val || this.close()
         },
     },
+    computed: {
+        navBarCode: {
+            get() { return this.$store.getters.navBarColor; },
+            set(v) { return this.$store.commit("toggleNavBarColor", v); }
+        },
+        bgCode: {
+            get () { return this.$store.getters.backgroundColor },
+            set (v) { return this.$store.commit('toggleBackgroundColor', v) }
+        },
+    },
     components:{
         'appHeader': AppHeader,
         'navDraw':NavDraw,
