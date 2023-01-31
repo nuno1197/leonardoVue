@@ -128,6 +128,9 @@ const headers: Header[] = [
 ];
 
 const items: Item[] = [
+    {username:"diretor",nome:"diretor",email:"diretor@uminho.pt",tipo:"Admin"},
+    {username:"professor",nome:"professor",email:"professor@uminho.pt",tipo:"Admin"},
+    {username:"admin",nome:"admin",email:"admin@admin.pt",tipo:"Admin"},
 ];
 
 

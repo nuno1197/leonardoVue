@@ -126,7 +126,7 @@ const sortBy = ["username","nome","email","tipo"];
 const sortType: SortType[] =  ["desc", "asc"];
 
 const headers: Header[] = [
-  { text: "Identificador", value: "identficador", sortable: true},
+  { text: "Identificador", value: "identificador", sortable: true},
   { text: "Descrição", value: "descricao", sortable: true},
   { text: "Escolaridade", value: "escolaridade", sortable: true},
   { text: "Responsável", value: "responsavel", sortable: true},
@@ -135,6 +135,10 @@ const headers: Header[] = [
 ];
 
 const items: Item[] = [
+    {identificador: "MAT", descricao:"Matemática", escolaridade:"12",responsavel: "Prof",datacriacao:"01/01/2000"},
+    {identificador: "LP", descricao:"Lingua Portuguesa", escolaridade:"9",responsavel: "Prof",datacriacao:"01/01/2000"},
+    {identificador: "F", descricao:"Fisica", escolaridade:"12",responsavel: "Prof",datacriacao:"01/01/2000"}
+
 ];
 
 

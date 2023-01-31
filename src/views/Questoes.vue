@@ -136,7 +136,7 @@ const sortBy = ["username","nome","email","tipo"];
 const sortType: SortType[] =  ["desc", "asc"];
 
 const headers: Header[] = [
-  { text: "Identificador", value: "identficador", sortable: true},
+  { text: "Identificador", value: "identificador", sortable: true},
   { text: "Domínio", value: "dominio", sortable: true},
   { text: "Subdomínio", value: "subdominio", sortable: true},
   { text: "Autor", value: "autor", sortable: true},
@@ -145,6 +145,9 @@ const headers: Header[] = [
 ];
 
 const items: Item[] = [
+    {identificador: "PT1",dominio:"Lingua Portuguesa",subdominio:"Fernando Pessoa",autor:"Prof1",datacriacao:"01/01/2000"},
+    {identificador: "PT2",dominio:"Lingua Portuguesa",subdominio:"Fernando Pessoa",autor:"Prof1",datacriacao:"01/01/2000"},
+    {identificador: "PT3",dominio:"Lingua Portuguesa",subdominio:"Fernando Pessoa",autor:"Prof1",datacriacao:"01/01/2000"},
 ];
 
 
